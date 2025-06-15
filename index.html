@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>شركة حاتم عزيز للاستشارات الهندسية</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background-color: #ffffff;
+      color: #222;
+    }
+    header {
+      background-color: #1a1a1a;
+      color: #ff6a00;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      max-height: 100px;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ff6a00;
+    }
+    .banner {
+      background-image: url('https://images.unsplash.com/photo-1599422314077-f4dfdaa4cd3a?auto=format&fit=crop&w=1400&q=80');
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 30px;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      color: #ff6a00;
+      margin-bottom: 15px;
+    }
+    .services ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .services li {
+      margin-bottom: 10px;
+    }
+    .services li::before {
+      content: "🔧 ";
+    }
+    .contact p a {
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+  </style>
+  <script>
+    if (location.protocol !== 'https:') {
+      location.replace(`https://${location.hostname}${location.pathname}${location.search}`);
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="شعار الشركة" />
+    <h1>شركة حاتم عزيز للاستشارات الهندسية</h1>
+    <p>نحو بناءٍ هندسي احترافي يواكب رؤية المملكة</p>
+  </header>
+
+  <nav>
+    <a href="#about">من نحن</a>
+    <a href="#services">خدماتنا</a>
+    <a href="#contact">تواصل معنا</a>
+  </nav>
+
+  <div class="banner"></div>
+
+  <section id="about">
+    <h2>من نحن</h2>
+    <p>شركة حاتم عزيز هي شركة هندسية تعمل بإحترافية عالية لبناء العمل بجميع أشكاله بما يتناسب مع الكود المحلي والعالمي، وأيضاً مع رؤية النخبة من المهندسين لدينا.</p>
+  </section>
+
+  <section id="services" class="services">
+    <h2>خدماتنا</h2>
+    <ul>
+      <li>التصميم المعماري والإنشائي</li>
+      <li>المخططات التنفيذية</li>
+      <li>إدارة المشاريع والإشراف</li>
+      <li>الاستشارات الهندسية</li>
+      <li>الكهرباء والميكانيكا</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>تواصل معنا</h2>
+    <p>📍 المملكة العربية السعودية</p>
+    <p>📞 <a href="tel:+966530180614">0530180614</a></p>
+    <p>📧 <a href="mailto:CEO@HAZEEZ.NET">CEO@HAZEEZ.NET</a></p>
+    <p>💬 <a href="https://wa.me/966530180614" target="_blank">راسلنا عبر واتساب</a></p>
+    <p>📘 <a href="https://www.facebook.com/killu13" target="_blank">فيسبوك</a></p>
+  </section>
+
+  <footer>
+    © 2025 جميع الحقوق محفوظة لشركة حاتم عزيز للاستشارات الهندسية
+  </footer>
+
+</body>
+</html>
