@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -41,14 +42,14 @@
       margin: 20px auto;
       padding: 0 15px;
     }
-    section.services {
+    section {
       background: white;
       padding: 20px;
       margin-bottom: 30px;
       box-shadow: 0 0 12px rgba(0,0,0,0.1);
       border-radius: 8px;
     }
-    section.services h2 {
+    section h2 {
       margin-bottom: 15px;
       color: #004d99;
       border-bottom: 3px solid #0073e6;
@@ -75,20 +76,6 @@
     }
     ul.services-list li:hover {
       background: #cce0ff;
-    }
-    section.contact {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-    }
-    section.contact h2 {
-      color: #004d99;
-      margin-bottom: 15px;
-      border-bottom: 3px solid #0073e6;
-      display: inline-block;
-      padding-bottom: 5px;
     }
     .contact-info {
       font-size: 1.1rem;
@@ -144,13 +131,13 @@
       }
     }
   </style>
-  <!-- إضافة أيقونات بسيطة -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
   <header>حاتم عزيز للاستشارات الهندسية</header>
 
   <nav>
+    <a href="#about">عن المكتب</a>
     <a href="#services">خدماتنا</a>
     <a href="#contact">تواصل معنا</a>
   </nav>
@@ -158,7 +145,15 @@
   <main>
     <img src="https://images.unsplash.com/photo-1508385082359-fd3059ef7a8e?auto=format&fit=crop&w=1100&q=80" alt="صورة هندسية" class="engineering-image" />
 
-    <section id="services" class="services">
+    <section id="about">
+      <h2>عن المكتب</h2>
+      <p>
+        تأسس مكتب حاتم عزيز للاستشارات الهندسية بهدف تقديم أفضل الحلول الهندسية المتكاملة والمتخصصة في المملكة العربية السعودية.
+        نتميز بخبرتنا الواسعة في التصميم الهندسي، التخطيط العمراني، وإدارة المشاريع لضمان تحقيق رضا عملائنا وتحقيق أعلى معايير الجودة والسلامة.
+      </p>
+    </section>
+
+    <section id="services">
       <h2>خدماتنا</h2>
       <ul class="services-list">
         <li>تصميم المنشآت الهندسية</li>
@@ -170,7 +165,7 @@
       </ul>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact">
       <h2>تواصل معنا</h2>
       <div class="contact-info">
         <p>📞 جوال: <a href="tel:+966530180614">0530180614</a></p>
