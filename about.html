@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>من أنا - حاتم عزيز</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #fff;
+      text-shadow: 2px 2px 6px #00000088;
+      margin-bottom: 20px;
+    }
+
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+      margin-bottom: 20px;
+    }
+
+    .info {
+      font-size: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      display: inline-block;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      margin-top: 20px;
+      max-width: 600px;
+    }
+
+    .balloons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://i.imgur.com/0XGJx8M.png');
+      background-repeat: repeat-x;
+      background-size: contain;
+      animation: float 10s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes float {
+      from { background-position: 0 100%; }
+      to { background-position: 100% 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="balloons"></div>
+
+  <div class="container">
+    <h1>أهلاً وسهلاً بكم!</h1>
+    <img src="myphoto.jpg" alt="صورتي" class="profile-img" />
+    <div class="info">
+      <p>مرحباً، أنا <strong>حاتم عزيز</strong>، مهندس ومستشار متخصص في مجال الاستشارات الهندسية.</p>
+      <p>أحب الابتكار، وأطمح لترك بصمة حقيقية في مشاريع البنية التحتية والهندسة المدنية في الوطن العربي.</p>
+      <p>أسعد بالتواصل معكم دائماً 🌟</p>
+    </div>
+  </div>
+
+</body>
+</html>
