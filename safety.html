@@ -7,56 +7,63 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body {
-    
       margin: 0;
       font-family: 'Cairo', sans-serif;
-      background-color: #f7f9fc;
+      background: linear-gradient(to left, #e9f0f5, #ffffff);
       color: #333;
     }
-
     header {
+      text-align: center;
+      padding: 40px 20px 10px;
+    }
+    header img {
+      max-width: 180px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    header h1 {
+      color: #004466;
+      font-size: 26px;
+      margin-top: 5px;
+    }
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+    .pdf-block {
+      margin-bottom: 50px;
+    }
+    .pdf-block h2 {
+      color: #003344;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .btns {
+      margin-top: 10px;
+    }
+    .btns a {
+      display: inline-block;
+      margin-left: 15px;
       background-color: #004466;
       color: white;
-      text-align: center;
-      padding: 40px 20px;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
     }
-
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
+    .btns a:hover {
+      background-color: #006699;
     }
-
-    .container {
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-
-    .article {
-      background-color: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-      transition: transform 0.3s ease;
-    }
-
-    .article:hover {
-      transform: translateY(-5px);
-    }
-
-    .article h2 {
-      color: #004466;
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .article p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #555;
-    }
-
     footer {
       background-color: #004466;
       color: white;
@@ -67,34 +74,38 @@
   </style>
 </head>
 <body>
-  
+
   <header>
-      <img src="logo.png" alt="شعار الشركة" style="max-width: 180px; display: block; margin: 0 auto 10px;" />
-  <h1 style="text-align:center; color:#004466;">شركة حاتم عزيز للاستشارات الهندسية</h1>
-    <h1>السلامة المهنية</h1>
-    <p>مقالات وشروحات في مجال السلامة والصحة المهنية</p>
+    <img src="logo.png" alt="شعار الشركة" />
+    <h1>شركة حاتم عزيز للاستشارات الهندسية</h1>
   </header>
 
-  <div class="container">
+  <main>
+    <h2 style="color:#003344; text-align:center; margin-bottom: 40px;">
+      📘 شروحات ومراجع السلامة المهنية
+    </h2>
 
-    <div class="article">
-      <h2>📌 أهمية السلامة في مواقع العمل</h2>
-      <p>تُعد السلامة المهنية من أهم أولويات المشاريع الهندسية. تهدف إلى حماية الأرواح والممتلكات وضمان سير العمل بفعالية وأمان.</p>
+    <!-- المحاضرة الأولى -->
+    <div class="pdf-block">
+      <h2>المحاضرة الأولى: سلسلة الاحتراف في تصميم أنظمة مرشات الحريق</h2>
+      <iframe src="سلسلة الإحتراف في تصميم أنظمة مرشات الحريق المحاضرة الأولى محمود عزيز.pdf#toolbar=0"></iframe>
+      <div class="btns">
+        <a href="سلسلة الإحتراف في تصميم أنظمة مرشات الحريق المحاضرة الأولى محمود عزيز.pdf" download>📥 تحميل</a>
+        <a href="سلسلة الإحتراف في تصميم أنظمة مرشات الحريق المحاضرة الأولى محمود عزيز.pdf" target="_blank">📖 قراءة في تبويب جديد</a>
+      </div>
     </div>
 
-    <div class="article">
-      <h2>🦺 معدات الوقاية الشخصية (PPE)</h2>
-      <p>تشمل الخوذة، النظارات الواقية، القفازات، الأحذية الخاصة، وغيرها. يجب التأكد من استخدامها وتوفيرها لجميع العاملين.</p>
+    <!-- المحاضرة الثانية -->
+    <div class="pdf-block">
+      <h2>المحاضرة الثانية: سلسلة الاحتراف في تصميم أنظمة مرشات الحريق</h2>
+      <iframe src="سلسلة الإحتراف في تصميم أنظمة مرشات الحريق المحاضرة الثانية محمود عزيز.pdf#toolbar=0"></iframe>
+      <div class="btns">
+        <a href="سلسلة الإحتراف في تصميم أنظمة مرشات الحريق المحاضرة الثانية محمود عزيز.pdf" download>📥 تحميل</a>
+        <a href="سلسلة الإحتراف في تصميم أنظمة مرشات الحريق المحاضرة الثانية محمود عزيز.pdf" target="_blank">📖 قراءة في تبويب جديد</a>
+      </div>
     </div>
 
-    <div class="article">
-      <h2>🚨 خطة الطوارئ والإخلاء</h2>
-      <p>من الضروري إعداد خطط إخلاء واضحة ومجربة وتدريب العاملين على كيفية التصرف في حال حدوث حريق أو طارئ مفاجئ.</p>
-    </div>
-
-    <!-- يمكنك إضافة المزيد هنا -->
-
-  </div>
+  </main>
 
   <footer>
     © 2025 شركة حاتم عزيز للاستشارات الهندسية
