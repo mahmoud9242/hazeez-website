@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,12 +10,18 @@
     body, html {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: 'Cairo', sans-serif;
+      scroll-behavior: smooth;
     }
 
-    .video-bg {
-      position: fixed;
+    .video-section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .video-section video {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -25,48 +30,48 @@
       z-index: -1;
     }
 
-    .overlay {
-      position: fixed;
+    .video-overlay {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.6);
       z-index: 0;
     }
 
-    .hero-content {
+    .video-content {
       position: relative;
       z-index: 1;
-      height: 100vh;
+      height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
       color: #fff;
     }
 
-    .hero-content img {
-      width: 200px;
+    .video-content img {
+      max-width: 200px;
       margin-bottom: 20px;
     }
 
-    .hero-content h1 {
+    .video-content h1 {
       font-size: 36px;
-      margin-bottom: 10px;
+      margin: 0;
     }
 
-    .hero-content p {
-      font-size: 20px;
-      max-width: 600px;
+    .video-content p {
+      font-size: 18px;
+      margin-top: 10px;
     }
 
     .scroll-down {
       position: absolute;
-      bottom: 40px;
-      color: #fff;
+      bottom: 30px;
       font-size: 18px;
+      color: #fff;
       animation: bounce 2s infinite;
     }
 
@@ -74,23 +79,100 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
+
+    header, nav, section, footer {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    nav {
+      background-color: #333;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
   </style>
 </head>
-
 <body>
-  <video autoplay muted loop playsinline class="video-bg">
-    <source src="https://cdn.coverr.co/videos/coverr-construction-workers-2744/1080p.mp4" type="video/mp4">
-    متصفحك لا يدعم تشغيل الفيديو.
-  </video>
+  <!-- الصفحة الأولى: الفيديو -->
+  <div class="video-section">
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.coverr.co/videos/coverr-construction-workers-2744/1080p.mp4" type="video/mp4">
+      متصفحك لا يدعم تشغيل الفيديو.
+    </video>
+    <div class="video-overlay"></div>
+    <div class="video-content">
+      <img src="logo.png" alt="شعار الشركة">
+      <h1>شركة حاتم عزيز للاستشارات الهندسية</h1>
+      <p>نحو بناء هندسي احترافي يواكب رؤية المملكة 2030</p>
+      <a href="#main" class="scroll-down">⬇ مرر للأسفل للاطلاع</a>
+    </div>
+  </div>
 
-  <div class="overlay"></div>
+  <!-- الصفحة الثانية: الموقع الكامل -->
+  <div id="main">
+    <header>
+      <img src="logo.png" alt="شعار الشركة" style="max-width: 180px; display: block; margin: 0 auto 10px;" />
+      <h1 style="text-align:center; color:#004466;">شركة حاتم عزيز للاستشارات الهندسية</h1>
+      <p style="text-align:center;">نحو بناء هندسي احترافي يواكب رؤية المملكة 2030</p>
+    </header>
 
-  <div class="hero-content">
-    <img src="logo.png" alt="شعار الشركة">
-    <h1>شركة حاتم عزيز للاستشارات الهندسية</h1>
-    <p>نحو بناء هندسي احترافي يواكب رؤية المملكة 2030</p>
-    <div class="scroll-down">⬇ مرر للأسفل للاطلاع</div>
+    <nav>
+      <a href="#about">من نحن</a>
+      <a href="#vision">رؤيتنا</a>
+      <a href="#services">خدماتنا</a>
+      <a href="#branches">فروعنا</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <section id="about">
+      <h2>🌟 من نحن 🌟</h2>
+      <p>نحن في شركة حاتم عزيز نضع الجودة والابتكار والدقة في قلب كل مشروع، بخبرة تمتد عبر سنوات نُقدّم حلولاً استشارية متكاملة تلبي أعلى المعايير.</p>
+    </section>
+
+    <section id="vision">
+      <h2>🌟 رؤيتنا 🌟</h2>
+      <p>نحو مستقبل هندسي احترافي يواكب تطلعات المملكة في التنمية المستدامة من خلال شراكات فاعلة وأفكار مبتكرة.</p>
+    </section>
+
+    <section id="services">
+      <h2>🌟 خدماتنا 🌟</h2>
+      <ul>
+        <li>الدراسات والتصميمات الهندسية</li>
+        <li>الإشراف الفني</li>
+        <li>إعداد التقارير الفنية والتحليلية</li>
+        <li>التخطيط العمراني</li>
+        <li>تصميم أنظمة الحريق والإنذار والإخلاء</li>
+        <li>تقييم المشاريع وإصدار شهادات المطابقة</li>
+      </ul>
+    </section>
+
+    <section id="branches">
+      <h2>🌟 فروعنا 🌟</h2>
+      <p>لدينا فروع داخل السعودية وخارجها: تبوك، سلطنة عمان، بريطانيا، أمريكا، اليمن.</p>
+    </section>
+
+    <section id="contact">
+      <h2>🌟 تواصل معنا 🌟</h2>
+      <p>📞 0530180614 | 📧 CEO@hazeez.net | 🌍 المملكة العربية السعودية</p>
+    </section>
+
+    <footer>
+      <p>© 2025 شركة حاتم عزيز للاستشارات الهندسية</p>
+    </footer>
   </div>
 </body>
-
 </html>
