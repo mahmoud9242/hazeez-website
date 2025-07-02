@@ -76,6 +76,30 @@
 </head>
 
 <body>
+  <!-- Intro Video Overlay -->
+<div id="intro-video" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background-color: black; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+  <video id="video" autoplay muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+    <source src="https://cdn.coverr.co/videos/coverr-engineer-checking-a-blueprint-1680/1080p.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div style="position: relative; z-index: 2; color: white; text-align: center;">
+    <img src="logo.png" alt="شعار الشركة" style="max-width: 180px; margin-bottom: 20px;">
+    <h1 style="font-size: 2rem;">حاتم عزيز للاستشارات الهندسية</h1>
+    <p style="margin-top: 15px;">اضغط في أي مكان للمتابعة</p>
+  </div>
+</div>
+
+<script>
+  document.getElementById("intro-video").addEventListener("click", function () {
+    const intro = document.getElementById("intro-video");
+    intro.style.transition = "opacity 0.6s ease";
+    intro.style.opacity = 0;
+    setTimeout(() => {
+      intro.style.display = "none";
+    }, 600);
+  });
+</script>
+
   <header>
     <img src="logo.png" alt="شعار الشركة" />
     <h1>شركة حاتم عزيز للاستشارات الهندسية</h1>
