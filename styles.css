@@ -340,11 +340,11 @@ body {
 }
 
 .ceo-photo {
-    width: 250px;
-    height: 250px;
-    border-radius: 10px;
-    object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 200px;       /* حجم مناسب */
+    height: 200px;
+    border-radius: 50%; /* يجعل الصورة دائرية */
+    object-fit: cover;  /* لتجنب التشويه */
+    border: 3px solid var(--primary); /* إطار اختياري */
 }
 
 .quote-text h3 {
