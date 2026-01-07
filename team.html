@@ -1,189 +1,26 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <head>
-
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>شركة هامات عزيز للاستشارات الهندسية</title>
-  <link rel="icon" type="image/png" href="https://hazeez.net/logo.png" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فريق العمل - هامات عزيز</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background-color: #ffffff;
-      color: #000;
-    }
-
-    header {
-      background-color: #1a1a1a;
-      color: #fff;
-      padding: 40px 0 10px;
-      text-align: center;
-    }
-
-    header img {
-      max-width: 250px;
-      display: block;
-      margin: 0 auto 10px;
-    }
-
-    nav {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-
-    h2 {
-      color: #ff6600;
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-
-    ul {
-      padding-right: 20px;
-    }
-
-    footer {
-      background-color: #1a1a1a;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .contact a {
-      display: block;
-      color: #ff6600;
-      margin-bottom: 10px;
-      text-decoration: none;
-  }
-  </style>
-</head>
-  <header>
-    <img src="logo.png" alt="شعار الشركة" />
-    <h1>شركة هامات عزيز للاستشارات الهندسية</h1>
-  </header>
-
-  <nav>
-    <a href="#about">من نحن</a>
-    <a href="#Our vision">رؤيتنا</a>
-    <a href="#services">خدماتنا</a>
-    <a href="#contact">تواصل معنا</a>
-    <a href="#Our branches">فروعنا</a>
-    <a href="team.html">فريق العمل</a>
-    <a href="safety.html">السلامة المهنية</a>
-
-  </nav>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>فريق العمل - شركة هامات عزيز</title>
-  <link rel="icon" type="image/png" href="https://hazeez.net/logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background-color: #f4f6f8;
-      color: #333;
-      overflow-x: hidden;
-    }
-
-    header {
-      background-color: #004466;
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    header h1 {
-      font-size: 36px;
-      margin: 0;
-    }
-
-    .team-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 50px 30px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .member-card {
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-      padding: 20px;
-      text-align: center;
-      transform: translateY(50px);
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards;
-    }
-
-    .member-card:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .member-card:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    .member-card:nth-child(4) {
-      animation-delay: 0.6s;
-    }
-
-    .member-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border: 2px solid #004466;
-      object-position: center 15%;
-    }
-
-    .member-name {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #004466;
-    }
-
-    .member-role {
-      font-size: 16px;
-      color: #777;
-    }
-
-    footer {
-      background-color: #004466;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
+    body { font-family: 'Cairo', sans-serif; background: #f4f6f9; margin:0; color:#333; }
+    header { text-align:center; background:#004466; color:#fff; padding:50px 20px; }
+    header h1 { margin:0; font-size:36px; }
+    header p { font-size:18px; margin-top:10px; }
+    .team-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; max-width:1200px; margin:50px auto; padding:0 20px; }
+    .member-card { background:#fff; border-radius:12px; padding:20px; text-align:center; box-shadow:0 6px 20px rgba(0,0,0,0.05); transform:translateY(50px); opacity:0; animation:fadeInUp 1s ease forwards; }
+    .member-card:nth-child(2){ animation-delay:0.2s; }
+    .member-card:nth-child(3){ animation-delay:0.4s; }
+    .member-card:nth-child(4){ animation-delay:0.6s; }
+    .member-photo { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:15px; border:3px solid #004466; object-position:center 15%; }
+    .member-name { font-size:20px; font-weight:bold; margin-bottom:5px; color:#004466; }
+    .member-role { font-size:16px; color:#777; }
+    footer { background:#004466; color:#fff; text-align:center; padding:20px; margin-top:50px; }
+    @keyframes fadeInUp { to { transform:translateY(0); opacity:1; } }
   </style>
 </head>
 <body>
@@ -195,37 +32,35 @@
   <section class="team-container">
     <!-- المدير العام -->
     <div class="member-card">
-      <img src="myphoto.jpeg" alt="حاتم عزيز" class="member-photo" />
+      <img src="myphoto.jpeg" alt="محمود حاتم عزيز" class="member-photo">
       <div class="member-name">م. محمود حاتم عزيز</div>
-      <div class="member-role">المدير العام</div>
-      <div class="member-role">المدير التنفيذي</div>
+      <div class="member-role">المدير العام / المدير التنفيذي</div>
     </div>
 
-    <!-- المدير العام -->
+    <!-- عضو 2 -->
     <div class="member-card">
-      <img src="yousefphoto.jpeg" alt="اسم العضو" class="member-photo" />
-      <div class="member-name">يوسف حاتم عزيز</div>
+      <img src="yousefphoto.jpeg" alt="يوسف حاتم عزيز" class="member-photo">
+      <div class="member-name">م. يوسف حاتم عزيز</div>
       <div class="member-role">المدير العام</div>
     </div>
 
     <!-- عضو 3 -->
     <div class="member-card">
-      <img src="team3.jpg" alt="اسم العضو" class="member-photo" />
+      <img src="team3.jpg" alt="مهندسة معمارية" class="member-photo">
       <div class="member-name">....</div>
       <div class="member-role">مهندسة معمارية</div>
     </div>
 
     <!-- عضو 4 -->
     <div class="member-card">
-      <img src="team4.jpg" alt="اسم العضو" class="member-photo" />
+      <img src="team4.jpg" alt="خبير نظم السلامة" class="member-photo">
       <div class="member-name">000</div>
       <div class="member-role">خبير نظم السلامة</div>
     </div>
   </section>
 
   <footer>
-    © 2025 شركة هامات عزيز للاستشارات الهندسية
+    &copy; 2025 هامات عزيز للاستشارات الهندسية
   </footer>
-
 </body>
 </html>
