@@ -4,32 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شركة هاتم عزيز للاستشارات الهندسية</title>
-    <link rel="icon" href="logo.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
-                <a href="#home" class="logo">
-                    <img src="logo.png" alt="شركة هاتم عزيز" class="logo-img">
-                </a>
+                <a href="index.html" class="logo"><img src="logo.png" alt="شركة هاتم عزيز" class="logo-img"></a>
                 <button class="menu-toggle" id="menuToggle">☰</button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home">الرئيسية</a></li>
                     <li><a href="#about">من نحن</a></li>
                     <li><a href="#vision">رؤيتنا</a></li>
                     <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#team">فريق العمل</a></li>
                     <li><a href="#branches">فروعنا</a></li>
-                    <li><a href="#safety">السلامة المهنية</a></li>
                     <li><a href="#contact">تواصل معنا</a></li>
-                    <li><a href="#contact" class="cta-btn">اطلب استشارة</a></li>
+                    <li><a href="team.html" class="cta-btn">فريق العمل</a></li>
+                    <li><a href="safety.html" class="cta-btn">الدورات & السلامة</a></li>
                 </ul>
             </div>
         </div>
@@ -38,11 +32,11 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">هاتم عزيز<br><span class="hero-subtitle">للاستشارات الهندسية</span></h1>
+            <h1 class="hero-title">هاتف عزيز<br><span class="hero-subtitle">للاستشارات الهندسية</span></h1>
             <p class="hero-description">نحو بناء هندسي احترافي يواكب رؤية المملكة 2030</p>
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="scrollToSection('services')">خدماتنا</button>
-                <button class="btn btn-secondary" onclick="scrollToSection('contact')">تواصل معنا</button>
+                <a href="#services" class="btn btn-primary">خدماتنا</a>
+                <a href="#contact" class="btn btn-secondary">تواصل معنا</a>
             </div>
         </div>
     </section>
@@ -83,20 +77,6 @@
                 نحو مستقبل هندسي احترافي يواكب تطلعات المملكة في التنمية المستدامة وجودة الحياة، 
                 من خلال شراكات فاعلة وأفكار مبتكرة.
             </p>
-            <div class="vision-grid">
-                <div class="vision-card">
-                    <h4>التنمية المستدامة</h4>
-                    <p>بناء مستقبل يراعي البيئة والموارد الطبيعية</p>
-                </div>
-                <div class="vision-card">
-                    <h4>جودة الحياة</h4>
-                    <p>تحسين معايير العيش والخدمات للمجتمع</p>
-                </div>
-                <div class="vision-card">
-                    <h4>الشراكات الفاعلة</h4>
-                    <p>التعاون مع أفضل الكفاءات والمؤسسات</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -109,36 +89,26 @@
                 <div class="service-card">
                     <div class="service-icon">📐</div>
                     <h4>الدراسات والتصميمات الهندسية</h4>
-                    <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">👷</div>
                     <h4>الإشراف الفني على المشاريع</h4>
-                    <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📋</div>
                     <h4>إعداد التقارير الفنية والتحليلية</h4>
-                    <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title">فريق العمل</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <img src="myphoto.jpeg" alt="م. محمود حاتم عزيز" class="team-photo">
-                    <h4>المهندس محمود حاتم عزيز</h4>
-                    <p class="position">المدير العام والمدير التنفيذي</p>
+                <div class="service-card">
+                    <div class="service-icon">🏙️</div>
+                    <h4>التخطيط الحضري والعمراني</h4>
                 </div>
-                <div class="team-card">
-                    <img src="yousefphoto.jpeg" alt="الأستاذ يوسف حاتم عزيز" class="team-photo">
-                    <h4>الأستاذ يوسف حاتم عزيز</h4>
-                    <p class="position">المدير العام</p>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h4>تصميم مخططات السلامة</h4>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✅</div>
+                    <h4>شهادات المطابقة والفحص</h4>
                 </div>
             </div>
         </div>
@@ -149,29 +119,21 @@
         <div class="container">
             <h2 class="section-title">فروعنا حول العالم</h2>
             <div class="branches-grid">
-                <!-- مثال واحد لكل فرع -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Safety Section -->
-    <section id="safety" class="safety">
-        <div class="container">
-            <h2 class="section-title">📘 السلامة المهنية</h2>
-            <div class="pdf-section">
-                <h3>📄 المحاضرة الأولى</h3>
-                <iframe src="lecture1.pdf#toolbar=0"></iframe>
-                <div class="pdf-links">
-                    <a href="lecture1.pdf" download>تحميل</a>
-                    <a href="lecture1.pdf" target="_blank">قراءة في تبويب جديد</a>
+                <div class="branch-card">
+                    <div class="branch-left-border"></div>
+                    <div class="branch-content">
+                        <h4>المكتب الرئيسي - المملكة العربية السعودية</h4>
+                        <p>تبوك</p>
+                    </div>
+                    <div class="branch-flag">🇸🇦</div>
                 </div>
-            </div>
-            <div class="pdf-section">
-                <h3>📄 المحاضرة الثانية</h3>
-                <iframe src="lecture2.pdf#toolbar=0"></iframe>
-                <div class="pdf-links">
-                    <a href="lecture2.pdf" download>تحميل</a>
-                    <a href="lecture2.pdf" target="_blank">قراءة في تبويب جديد</a>
+                <div class="branch-card">
+                    <div class="branch-left-border"></div>
+                    <div class="branch-content">
+                        <h4>فرع تركيا</h4>
+                        <p>إسطنبول - حي الحريات</p>
+                    </div>
+                    <div class="branch-flag">🇹🇷</div>
                 </div>
             </div>
         </div>
@@ -181,13 +143,22 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">تواصل معنا</h2>
+            <div class="contact-methods">
+                <a href="tel:+966530180614" class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h4>اتصل بنا</h4>
+                </a>
+                <a href="mailto:CEO@HAZEEZ.NET" class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h4>راسلنا عبر البريد</h4>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 شركة هاتم عزيز للاستشارات الهندسية. جميع الحقوق محفوظة.</p>
+            <p>&copy; 2026 شركة هاتم عزيز للاستشارات الهندسية. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
