@@ -1,355 +1,260 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هامات عزيز للاستشارات الهندسية | Hamat Hazeez</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>شركة هامات عزيز للاستشارات الهندسية</title>
-  <link rel="icon" type="image/png" href="https://hazeez.net/logo.png" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background-color: #ffffff;
-      color: #000;
-    }
+    <style>
+        :root {
+            --primary: #0a192f;
+            --accent: #c5a059;
+            --text-light: #e6f1ff;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
 
-    header {
-      background-color: #1a1a1a;
-      color: #fff;
-      padding: 40px 0 10px;
-      text-align: center;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: #020c1b; color: var(--text-light); line-height: 1.7; overflow-x: hidden; }
 
-    header img {
-      max-width: 250px;
-      display: block;
-      margin: 0 auto 10px;
-    }
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(2, 12, 27, 0.85); backdrop-filter: blur(10px); z-index: 2000;
+            border-bottom: 1px solid rgba(200, 160, 89, 0.2);
+        }
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--accent); letter-spacing: 1px; }
+        .nav-links a { color: var(--text-light); text-decoration: none; margin-right: 25px; font-size: 0.9rem; font-weight: 600; }
+        .nav-links a:hover { color: var(--accent); }
 
-    nav {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-    }
+        /* Hero Section */
+        .hero {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: radial-gradient(circle at center, rgba(197, 160, 89, 0.1) 0%, transparent 70%), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            text-align: center; padding: 0 20px;
+        }
+        .hero-box h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .hero-box p { font-size: 1.3rem; color: #8892b0; max-width: 800px; margin: 0 auto 30px; }
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        /* Sections Styling */
+        section { padding: 100px 10%; }
+        .section-header { margin-bottom: 60px; text-align: center; }
+        .section-header h2 { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
+        .section-header div { height: 4px; width: 80px; background: var(--accent); margin: auto; border-radius: 2px; }
 
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
+        /* Cards Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .glass-card {
+            background: var(--glass); padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1); position: relative; overflow: hidden;
+            transition: 0.5s;
+        }
+        .glass-card:hover { background: rgba(197, 160, 89, 0.05); transform: translateY(-10px); border-color: var(--accent); }
+        .glass-card i { font-size: 3rem; color: var(--accent); margin-bottom: 20px; display: block; }
 
-    h2 {
-      color: #ff6600;
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
+        /* Team Section */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
+        .member-card { text-align: center; }
+        .member-card img { 
+            width: 180px; height: 180px; border-radius: 50%; object-fit: cover; 
+            border: 3px solid var(--accent); padding: 5px; filter: grayscale(100%); transition: 0.5s;
+        }
+        .member-card:hover img { filter: grayscale(0%); transform: scale(1.05); }
 
-    ul {
-      padding-right: 20px;
-    }
+        /* Safety Section (السلامة المهنية) */
+        .safety-box {
+            display: flex; align-items: center; gap: 50px; background: rgba(197, 160, 89, 0.05);
+            padding: 50px; border-radius: 30px; border-left: 5px solid var(--accent);
+        }
 
-    footer {
-      background-color: #1a1a1a;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
+        /* Branches (الفروع) */
+        .branch-tag {
+            background: var(--glass); padding: 15px 25px; border-radius: 50px;
+            display: inline-flex; align-items: center; gap: 10px; margin: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-    .contact a {
-      display: block;
-      color: #ff6600;
-      margin-bottom: 10px;
-      text-decoration: none;
-  }
-  </style>
+        /* Contact Form */
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        input, textarea {
+            width: 100%; padding: 15px; background: var(--glass); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px; color: white; margin-bottom: 20px;
+        }
+        .btn-send { 
+            background: var(--accent); color: var(--primary); padding: 15px 40px; 
+            border: none; border-radius: 5px; font-weight: 900; cursor: pointer;
+        }
+
+        footer { text-align: center; padding: 50px; border-top: 1px solid rgba(255,255,255,0.1); color: #8892b0; }
+
+        @media (max-width: 768px) {
+            .contact-container, .about-flex { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 15px 5%; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
-
 <body>
-  <!-- فيديو تمهيدي -->
-  <div id="intro-video" style="position:fixed; inset:0; z-index:9999; background:#000; display:flex; align-items:center; justify-content:center; flex-direction:column;">
-    <video autoplay muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;">
-      <source src="intro.mp4" type="video/mp4">
-      متصفحك لا يدعم عرض الفيديو.
-    </video>
-    <div style="position:relative; z-index:2; text-align:center; color:#fff;">
-      <img src="logo.png" alt="شعار الشركة" style="max-width:180px; margin-bottom:20px;">
-      <h1>هامات عزيز للاستشارات الهندسية</h1>
-      <p>اضغط في أي مكان للمتابعة</p>
-    </div>
-  </div>
 
-  <script>
-    document.getElementById("intro-video").addEventListener("click", function(){
-      const ov = document.getElementById("intro-video");
-      ov.style.opacity = 0;
-      ov.style.transition = "opacity .6s";
-      setTimeout(() => ov.remove(), 600);
-    });
-  </script>
+    <nav>
+        <div class="logo">HAZEEZ.ENG</div>
+        <div class="nav-links">
+            <a href="#about">من نحن</a>
+            <a href="#services">خدماتنا</a>
+            <a href="#safety">السلامة</a>
+            <a href="#team">الفريق</a>
+            <a href="#contact">اتصل بنا</a>
+        </div>
+    </nav>
 
-</body>
+    <section class="hero">
+        <div class="hero-box" data-aos="fade-up">
+            <h1>هامات عزيز <br><span style="color:var(--accent)">للاستشارات الهندسية</span></h1>
+            <p>حلول هندسية متكاملة تتجاوز التوقعات، تدمج بين الابتكار المعماري وأعلى معايير السلامة المهنية لتواكب رؤية 2030.</p>
+            <a href="#contact" class="btn-send" style="text-decoration:none">اطلب استشارتك الآن</a>
+        </div>
+    </section>
 
-  <header>
-    <a href="index.html">
-    <img src="logo.png" alt="شعار الشركة">
-</a>
-    <h1>شركة هامات عزيز للاستشارات الهندسية</h1>
-    <p>نحو بناء هندسي احترافي يواكب رؤية المملكة</p>
-  </header>
+    <section id="about" data-aos="fade-right">
+        <div class="section-header">
+            <h2>من نحن ورؤيتنا</h2>
+            <div></div>
+        </div>
+        <div class="grid">
+            <div class="glass-card">
+                <i class="fas fa-eye"></i>
+                <h3>رؤيتنا</h3>
+                <p>أن نكون الصرح الهندسي الرائد عالمياً، عبر تقديم حلول ذكية ومستدامة تساهم في بناء مستقبل عمراني مبهر.</p>
+            </div>
+            <div class="glass-card">
+                <i class="fas fa-users-viewfinder"></i>
+                <h3>من نحن</h3>
+                <p>نحن فريق من الخبراء والمستشارين، كرسنا أنفسنا لتقديم خدمات هندسية فائقة الدقة في السعودية والعديد من الدول.</p>
+            </div>
+        </div>
+    </section>
 
-  <nav>
-    <a href="#about">من نحن</a>
-    <a href="#Our vision">رؤيتنا</a>
-    <a href="#services">خدماتنا</a>
-    <a href="#contact">تواصل معنا</a>
-    <a href="#Our branches">فروعنا</a>
-    <a href="team.html">فريق العمل</a>
-    <a href="safety.html">السلامة المهنية</a>
+    <section id="services" style="background: #020c1b;">
+        <div class="section-header" data-aos="fade-up">
+            <h2>خدماتنا الهندسية</h2>
+            <div></div>
+        </div>
+        <div class="grid">
+            <div class="glass-card" data-aos="zoom-in">
+                <i class="fas fa-pencil-ruler"></i>
+                <h3>التصميم والدراسات</h3>
+                <p>مخططات معمارية وإنشائية متطورة بأحدث البرمجيات.</p>
+            </div>
+            <div class="glass-card" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fas fa-helmet-safety"></i>
+                <h3>الإشراف الفني</h3>
+                <p>رقابة دقيقة لضمان مطابقة التنفيذ لأعلى المواصفات.</p>
+            </div>
+            <div class="glass-card" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-fire-extinguisher"></i>
+                <h3>مخططات السلامة</h3>
+                <p>اعتماد وتصميم أنظمة الحماية من الحريق والأمن الصناعي.</p>
+            </div>
+            <div class="glass-card" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fas fa-city"></i>
+                <h3>التخطيط العمراني</h3>
+                <p>رؤية شاملة للمجمعات السكنية والمدن الذكية.</p>
+            </div>
+        </div>
+    </section>
 
-  </nav>
+    <section id="safety" data-aos="fade-up">
+        <div class="section-header">
+            <h2>السلامة المهنية</h2>
+            <div></div>
+        </div>
+        <div class="safety-box">
+            <div style="flex:1">
+                <h3>نلتزم بأعلى معايير الأمان</h3>
+                <p>في هامات عزيز، نضع سلامة الأرواح والمنشآت فوق كل اعتبار. تشمل خدماتنا الفحص الدوري، تقييم المخاطر، وإصدار شهادات المطابقة المعتمدة دولياً لضمان بيئة عمل خالية من الحوادث.</p>
+            </div>
+            <div style="flex:1; text-align:center;">
+                <i class="fas fa-shield-halved" style="font-size:10rem; color:var(--accent); opacity:0.3"></i>
+            </div>
+        </div>
+    </section>
 
-    <section id="about">
-    <h2>🌟من نحن🌟</h2>
-    <p>
-      نحن في <strong>شركة هامات عزيز للاستشارات الهندسية</strong> نضع الجودة، والابتكار، والدقة في قلب كل مشروع.
-      بخبرة هندسية تمتد عبر سنوات من العمل الميداني والتخطيط الاستراتيجي، نسعى لتقديم حلول استشارية متكاملة
-      تلبي أعلى معايير البناء والتطوير في المملكة العربية السعودية، وتواكب تطلعات رؤية 2030.
-    </p>
-  </section>
+    <section id="team">
+        <div class="section-header" data-aos="fade-up">
+            <h2>فريق العمل</h2>
+            <div></div>
+        </div>
+        <div class="team-grid">
+            <div class="member-card" data-aos="flip-left">
+                <img src="https://images.unsplash.com/photo-1556157382-97dee2dcb748?q=80&w=400" alt="">
+                <h3 style="margin-top:15px">م. عزيز هامات</h3>
+                <p>المدير التنفيذي</p>
+            </div>
+            <div class="member-card" data-aos="flip-left" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400" alt="">
+                <h3>م. عبد الرحمن علي</h3>
+                <p>كبير المستشارين</p>
+            </div>
+            <div class="member-card" data-aos="flip-left" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=400" alt="">
+                <h3>م. ليلى حسن</h3>
+                <p>رئيسة قسم التصميم</p>
+            </div>
+        </div>
+    </section>
 
-    <section id="Our vision">
-    <h2>🌟رؤيتنا🌟</h2> 
-    <p>
-نحو مستقبل هندسي احترافي يواكب تطلعات المملكة في التنمية المستدامة وجودة الحياة، من خلال شراكات فاعلة وأفكار مبتكرة.
-    </p>
-  </section>
-  
-  <section id="services">
-    <h2>🌟خدماتنا🌟</h2>
-    <ul>
-      <li>الدراسات والتصميمات الهندسية المتكاملة</li>
-      <li>الإشراف الفني على المشاريع</li>
-      <li>إعداد التقارير الفنية والتحليلية</li>
-      <li>التخطيط الحضري والعمراني</li>
-      <li>تقييم المشاريع العقارية والهندسية</li>
-      <li>تصميم مخططات الإطفاء من الحريق</li>
-      <li>تصميم ومخططات الإنذار من الحريق</li>
-      <li>التقارير الفنية بجميع أشكالها</li>
-      <li>شهادة المطابقة والفحص والتجربة</li>
-      <li>الحسابات الهيدروليكية لمضخة الحريق</li>
-      <li>إيجاد الحلول الهندسية لجميع المشاكل في المواقع سواء الجديدة او القائمة</li>
-      <li>إعداد خطط الإخلاء والطوارئ</li>
-    </ul>
-    <p>كل خدمة تُنفذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية.</p>
-  </section>
+    <section id="branches" style="text-align:center;">
+        <div class="section-header">
+            <h2>فروعنا الدولية</h2>
+            <div></div>
+        </div>
+        <div class="branch-tag"><i class="fas fa-location-dot"></i> السعودية - تبوك</div>
+        <div class="branch-tag"><i class="fas fa-location-dot"></i> تركيا - إسطنبول</div>
+        <div class="branch-tag"><i class="fas fa-location-dot"></i> أمريكا - شيريدان</div>
+        <div class="branch-tag"><i class="fas fa-location-dot"></i> بريطانيا - لندن</div>
+        <div class="branch-tag"><i class="fas fa-location-dot"></i> اليمن - تعز</div>
+    </section>
 
-  <section id="contact">
-    <h2>🌟تواصل معنا🌟</h2>
-    <p>نحن دائماً على استعداد للإجابة على استفساراتكم واستقبال طلباتكم:</p>
-    <div class="contact">
-      <a href="tel:0500908600">📞 الجوال: 0500908600</a>
-      <a href="mailto:CEO@HAZEEZ.NET">📧 البريد الإلكتروني: CEO@HAZEEZ.NET</a>
-      <a href="https://wa.me/966530180614" target="_blank">💬 واتساب مباشر</a>
-      <a>📍 المملكة العربية السعودية</a>
-      <a href="https://www.facebook.com/killu13" target="_blank">💼 صفحتنا على فيسبوك</a>
-    </div>
-  </section>
+    <section id="contact">
+        <div class="section-header">
+            <h2>تواصل معنا</h2>
+            <div></div>
+        </div>
+        <div class="contact-container">
+            <div>
+                <h3>لديك مشروع قادم؟</h3>
+                <p>نحن نؤمن بأن كل مشروع هو قصة نجاح جديدة. دعنا نبدأ كتابتها معاً.</p>
+                <br>
+                <p><i class="fas fa-phone"></i> +966 5XX XXX XXX</p>
+                <p><i class="fas fa-envelope"></i> info@hazeez.net</p>
+            </div>
+            <form>
+                <input type="text" placeholder="الاسم الكامل">
+                <input type="email" placeholder="البريد الإلكتروني">
+                <textarea rows="5" placeholder="تفاصيل مشروعك أو استشارتك"></textarea>
+                <button class="btn-send">إرسال الطلب</button>
+            </form>
+        </div>
+    </section>
 
-<section id="Our branches">
-    <h2>🌟فروعنا🌟</h2>
-<div class="office-grid">
-  
-<style>
-  .office-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+    <footer>
+        <p>© 2026 هامات عزيز للاستشارات الهندسية. جميع الحقوق محفوظة.</p>
+        <div style="margin-top:15px; font-size:1.5rem;">
+            <i class="fab fa-linkedin" style="margin:0 10px"></i>
+            <i class="fab fa-twitter" style="margin:0 10px"></i>
+            <i class="fab fa-whatsapp" style="margin:0 10px"></i>
+        </div>
+    </footer>
 
-  .office-box {
-    flex: 1 1 300px;
-    background-color: #ffffff;
-    border-left: 5px solid #007BFF;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    border-radius: 8px;
-    padding: 20px;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .office-box:hover {
-    transform: translateY(-5px);
-  }
-
-  .office-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
-  }
-
-  .office-location {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 4px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .flag-icon {
-    width: 30px;
-    height: auto;
-    vertical-align: middle;
-    border-radius: 1px;
-  }
-</style>
-
-<div class="office-grid">
-  
-  <div class="office-box">
-    <div class="office-title">شركة سرت المتحدة للإستشارات الهندسية والتجارة ذات المسؤولية المحدودة</div>
-    <div class="office-location">
-<img class="flag-icon" src="https://flagcdn.com/w40/tr.png" alt="Turkey Flag">
-      فرع الجمهورية التركية - أسطنبول - حي الحريات
-    </div>
-  </div>
-
-  <div class="office-box">
-    <div class="office-title">شركة هامات عزيز للإستشارات الهندسية</div>
-    <div class="office-location">
-      <img class="flag-icon" src="https://flagcdn.com/w40/sa.png" alt="SA Flag">
-      المكتب الرئيسي المملكة العربية السعودية - تبوك
-    </div>
-  </div>
-  
-  <div class="office-box">
-    <div class="office-title">Sirte United Company for Engineering Consulting LLC</div>
-    <div class="office-location">
-      <img class="flag-icon" src="https://flagcdn.com/w40/us.png" alt="US Flag">
-      فرع أمريكا - 30 N Gould St, Ste R, Sheridan, WY 82801
-    </div>
-  </div>
-
-  <div class="office-box">
-    <div class="office-title">SIRTE UNITED COMPANY FOR ENGINEERING CONSULTING LTD</div>
-    <div class="office-location">
-      <img class="flag-icon" src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
-      فرع بريطانيا - 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
-    </div>
-  </div>
-
-  <div class="office-box">
-    <div class="office-title">شركة سرت المتحدة للإستشارات الهندسية</div>
-    <div class="office-location">
-      <img class="flag-icon" src="https://flagcdn.com/w40/ye.png" alt="Yemen Flag">
-      فرع الجمهورية اليمنية - محافظة تعز
-    </div>
-  </div>
-
-</div>
-  </section>
-
-<section id="general-manager">
-  <style>
-    .gm-section {
-      background: linear-gradient(to left, #f8f9fa, #dce3e9);
-      padding: 60px 20px;
-      text-align: center;
-      border-radius: 12px;
-      margin: 50px auto;
-      max-width: 1000px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      animation: fadeIn 1.5s ease forwards;
-      opacity: 0;
-    }
-
-    .gm-title {
-      font-size: 32px;
-      color: #004466;
-      margin-bottom: 30px;
-      font-weight: bold;
-      position: relative;
-      display: inline-block;
-    }
-
-    .gm-title::after {
-      content: '';
-      width: 60px;
-      height: 4px;
-      background-color: #004466;
-      display: block;
-      margin: 8px auto 0;
-      border-radius: 2px;
-    }
-
-    .gm-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #004466;
-      margin-bottom: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      object-position: center 10%;
-    }
-
-    .gm-name {
-      font-size: 22px;
-      color: #222;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .gm-role {
-      color: #666;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .gm-quote {
-      font-style: italic;
-      color: #444;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
-
-  <div class="gm-section">
-    <h2 class="gm-title">كلمة المدير العام</h2>
-    <img src="myphoto2.jpeg" alt="المدير العام" class="gm-img" />
-    <div class="gm-name">م. محمود حاتم عزيز</div>
-    <div class="gm-role">المدير العام والمدير التنفيذي لشركة هامات عزيز للاستشارات الهندسية</div>
-    <p class="gm-quote">"قيادة المشاريع الهندسية ليست فقط حسابات وتصاميم، بل رؤية وإيمان بأن التفاصيل تصنع الفارق."</p>
-    <p class="gm-quote">"أحمل رؤية واضحة لتطوير قطاع الاستشارات الهندسية في المملكة وفقاً لمعايير الجودة، والابتكار، والدقة"</p>
-    <p class="gm-quote">"أسعى لبناء فريق عمل محترف قادر على مواجهة تحديات المشاريع الحديثة وتحقيق رضا العميل في كل تفصيل هندسي.
-بخبرة تتجاوز 15 عاماً، أضع دائماً الإنسان قبل البنيان، والإخلاص قبل الإنجاز.
-"</p>
-  </div>
-</section>
-
-  
-  <footer>
-    <p>© 2025 شركة هامات عزيز للاستشارات الهندسية. جميع الحقوق محفوظة.</p>
-  </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
 </body>
 </html>
