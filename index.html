@@ -3,214 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عزيز للهندسة | Hazeez Engineering</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Hazeez Engineering | فريق العمل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        :root {
-            --main-color: #0f4c75; /* أزرق هادئ مريح للعين */
-            --accent-color: #3282b8;
-            --bg-light: #f9f9f9;
-            --text-dark: #1b262c;
-            --white: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-            transition: all 0.3s ease-in-out;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--white);
-            color: var(--text-dark);
-            line-height: 1.8;
-        }
-
-        /* القائمة العلوية */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(255, 255, 255, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--main-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            margin: 0 15px;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover { color: var(--accent-color); }
-
-        /* قسم الترحيب (Hero Section) */
-        .hero {
-            padding: 160px 8% 100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
-            min-height: 80vh;
-        }
-
-        .hero-content { flex: 1; }
-        .hero-image { flex: 1; text-align: left; }
+        :root { --main: #0f4c75; --accent: #3282b8; --text: #1b262c; }
+        body { font-family: 'Cairo', sans-serif; margin: 0; color: var(--text); background: #fdfdfd; }
         
-        /* صورة احترافية مع تأثير */
-        .hero-image img {
-            max-width: 90%;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
-        }
+        /* مكان اللوجو */
+        .header { display: flex; justify-content: space-between; padding: 20px 8%; align-items: center; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo-container img { height: 60px; } /* هنا سيظهر اللوجو الخاص بك */
 
-        .hero h1 {
-            font-size: 3rem;
-            color: var(--main-color);
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
+        .section-title { text-align: center; padding: 60px 0 20px; }
+        .section-title h2 { color: var(--main); font-size: 2.2rem; }
 
-        .btn-main {
-            display: inline-block;
-            padding: 12px 35px;
-            background: var(--main-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(15, 76, 117, 0.3);
-        }
+        /* قسم فريق العمل */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 40px 8%; }
+        .member-card { background: #fff; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #eee; }
+        .member-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; background: #eee; margin-bottom: 15px; }
+        .member-card h3 { margin: 10px 0 5px; color: var(--main); }
+        .member-card p { color: #777; font-size: 0.9rem; }
 
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(15, 76, 117, 0.4); }
-
-        /* الأقسام (Services) */
-        .section { padding: 80px 8%; text-align: center; }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .card {
-            padding: 40px;
-            background: var(--white);
-            border-radius: 20px;
-            border: 1px solid #eee;
-        }
-
-        .card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .card i {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        /* فوتر */
-        footer {
-            background: var(--main-color);
-            color: white;
-            padding: 60px 8% 20px;
-            text-align: center;
-        }
-
-        /* للموبايل */
-        @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
-            .hero-image { margin-top: 50px; }
-            .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; }
-        }
+        footer { background: var(--main); color: #fff; text-align: center; padding: 40px; margin-top: 50px; }
     </style>
 </head>
 <body>
 
+<header class="header">
+    <div class="logo-container">
+        <img src="logo.png" alt="لوجو عزيز للهندسة">
+    </div>
     <nav>
-        <div class="logo">
-            <i class="fas fa-drafting-compass"></i> عزيز للهندسة
-        </div>
-        <div class="nav-links">
-            <a href="#">الرئيسية</a>
-            <a href="#services">خدماتنا</a>
-            <a href="#projects">مشاريعنا</a>
-            <a href="#contact" class="btn-main" style="padding: 8px 20px; color: white;">تواصل معنا</a>
-        </div>
+        <strong>Hazeez Engineering</strong>
     </nav>
+</header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>نبني المستقبل <br> بلمسة هندسية ذكية</h1>
-            <p>حلول هندسية متكاملة تجمع بين الدقة التقنية والجمال المعماري. نحن هنا لنحول رؤيتك إلى واقع ملموس بأعلى معايير الجودة.</p>
-            <br>
-            <a href="#services" class="btn-main">اكتشف خدماتنا</a>
-        </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80" alt="Engineering">
-        </div>
-    </section>
+<section id="team">
+    <div class="section-title">
+        <h2>فريق العمل</h2>
+        <p>الخبراء خلف نجاح مشاريعنا</p>
+    </div>
 
-    <section class="section" id="services">
-        <h2>لماذا تختار "عزيز للهندسة"؟</h2>
-        <p>نتميز بالابتكار والالتزام في كل تفاصيل العمل</p>
-        
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-pencil-ruler"></i>
-                <h3>تصميم دقيق</h3>
-                <p>مخططات هندسية مدروسة بعناية لتناسب احتياجاتك وميزانيتك.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-building"></i>
-                <h3>إشراف هندسي</h3>
-                <p>فريق متخصص يتابع تنفيذ المشروع في كل خطوة لضمان السلامة.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-microchip"></i>
-                <h3>تقنيات حديثة</h3>
-                <p>نستخدم أحدث برامج النمذجة والذكاء الاصطناعي لتوفير الوقت والتكلفة.</p>
-            </div>
+    <div class="team-grid">
+        <div class="member-card">
+            <img src="member1.jpg" alt="اسم العضو">
+            <h3>الاسم هنا</h3>
+            <p>المنصب (مثلاً: مهندس مدني)</p>
         </div>
-    </section>
 
-    <footer>
-        <div style="margin-bottom: 30px;">
-            <h3>عزيز للهندسة - Hazeez Engineering</h3>
-            <p>خبرة تمتد لسنوات في خدمة قطاع الإنشاءات والتصميم.</p>
-            <div style="font-size: 1.5rem; gap: 20px; display: flex; justify-content: center;">
-                <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
-                <a href="#" style="color: white;"><i class="fab fa-twitter"></i></a>
-                <a href="#" style="color: white;"><i class="fab fa-linkedin"></i></a>
-            </div>
+        <div class="member-card">
+            <img src="member2.jpg" alt="اسم العضو">
+            <h3>الاسم هنا</h3>
+            <p>المنصب (مثلاً: مدير مشاريع)</p>
         </div>
-        <hr style="opacity: 0.2;">
-        <p style="font-size: 0.8rem; opacity: 0.7;">&copy; 2026 جميع الحقوق محفوظة لشركة عزيز للهندسة</p>
-    </footer>
+
+        <div class="member-card">
+            <img src="member3.jpg" alt="اسم العضو">
+            <h3>الاسم هنا</h3>
+            <p>المنصب (مثلاً: مصمم معماري)</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>جميع الحقوق محفوظة لشركة عزيز للهندسة &copy; 2026</p>
+</footer>
 
 </body>
 </html>
