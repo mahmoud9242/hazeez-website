@@ -1,282 +1,191 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شركة هامات عزيز للاستشارات الهندسية</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شركة هامات عزيز للاستشارات الهندسية</title>
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:'Cairo',sans-serif;
+background:#f5f7fa;
+color:#222;
+}
+
+a{text-decoration:none;color:inherit}
+
+header{
+background:#0f172a;
+padding:20px 40px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+header img{
+height:55px;
+cursor:pointer;
+}
+
+nav a{
+color:#fff;
+margin:0 15px;
+font-weight:600;
+}
+
+.hero{
+background:url('engineering.jpg') center/cover no-repeat;
+height:85vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#fff;
+position:relative;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+padding:20px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.section{
+padding:80px 40px;
+max-width:1200px;
+margin:auto;
+}
+
+.section h2{
+font-size:32px;
+color:#0f172a;
+margin-bottom:30px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.service-box{
+background:#fff;
+padding:30px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.manager{
+display:flex;
+align-items:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.manager img{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #0f172a;
+}
+
+footer{
+background:#0f172a;
+color:#fff;
+padding:40px;
+text-align:center;
+}
+</style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="#" class="logo">
-                    <img src="logo.png" alt="شركة هامات عزيز" class="logo-img">
-                </a>
-                <button class="menu-toggle" id="menuToggle">☰</button>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#vision">رؤيتنا</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#team">فريق العمل</a></li>
-                    <li><a href="#branches">فروعنا</a></li>
-                    <li><a href="#contact">تواصل معنا</a></li>
-                    <li><a href="#contact" class="cta-btn">اطلب استشارة</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">هامات عزيز<br><span class="hero-subtitle">للاستشارات الهندسية</span></h1>
-            <p class="hero-description">نحو بناء هندسي احترافي يواكب رؤية المملكة 2030</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="scrollToSection('services')">خدماتنا</button>
-                <button class="btn btn-secondary" onclick="scrollToSection('contact')">تواصل معنا</button>
-            </div>
-        </div>
-    </section>
+<header>
+<img src="logo.png" onclick="location.href='index.html'">
+<nav>
+<a href="index.html">الرئيسية</a>
+<a href="team.html">فريق العمل</a>
+<a href="safety.html">السلامة المهنية</a>
+</nav>
+</header>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">من نحن</h2>
-            <h3 class="section-subtitle">الجودة والابتكار والدقة في قلب كل مشروع</h3>
-            <p class="section-description">
-                نحن في شركة هامات عزيز للاستشارات الهندسية نضع الجودة، والابتكار، والدقة في قلب كل مشروع. 
-                بخبرة هندسية تمتد عبر سنوات من العمل الميداني والتخطيط الاستراتيجي، نسعى لتقديم حلول استشارية متكاملة 
-                تلبي أعلى معايير البناء والتطوير في المملكة العربية السعودية.
-            </p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h4>خبرة تمتد لسنوات</h4>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h4>فريق عمل محترف</h4>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h4>حلول مبتكرة</h4>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+<div class="hero-content">
+<h1>شركة هامات عزيز للاستشارات الهندسية</h1>
+<p>خبرة هندسية متكاملة وفق أعلى المعايير المحلية والدولية</p>
+</div>
+</section>
 
-    <!-- Vision Section -->
-    <section id="vision" class="vision">
-        <div class="container">
-            <h2 class="section-title">رؤيتنا</h2>
-            <h3 class="section-subtitle">نحو مستقبل هندسي احترافي</h3>
-            <p class="section-description">
-                نحو مستقبل هندسي احترافي يواكب تطلعات المملكة في التنمية المستدامة وجودة الحياة، 
-                من خلال شراكات فاعلة وأفكار مبتكرة.
-            </p>
-            <div class="vision-grid">
-                <div class="vision-card">
-                    <h4>التنمية المستدامة</h4>
-                    <p>بناء مستقبل يراعي البيئة والموارد الطبيعية</p>
-                </div>
-                <div class="vision-card">
-                    <h4>جودة الحياة</h4>
-                    <p>تحسين معايير العيش والخدمات للمجتمع</p>
-                </div>
-                <div class="vision-card">
-                    <h4>الشراكات الفاعلة</h4>
-                    <p>التعاون مع أفضل الكفاءات والمؤسسات</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section">
+<h2>من نحن</h2>
+<p>
+شركة هامات عزيز للاستشارات الهندسية تقدم حلولاً هندسية متكاملة
+في مجالات التصميم، السلامة، الإشراف، والدراسات الفنية وفق
+الكود السعودي والأمريكي.
+</p>
+</section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">خدماتنا الهندسية</h2>
-            <p class="section-description">نقدم مجموعة متكاملة من الخدمات الهندسية والاستشارية لتلبية جميع احتياجات مشاريعكم</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">📐</div>
-                    <h4>الدراسات والتصميمات الهندسية</h4>
-                    <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">👷</div>
-                    <h4>الإشراف الفني على المشاريع</h4>
-                    <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📋</div>
-                    <h4>إعداد التقارير الفنية والتحليلية</h4>
-                    <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏙️</div>
-                    <h4>التخطيط الحضري والعمراني</h4>
-                    <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h4>تصميم مخططات السلامة</h4>
-                    <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">✅</div>
-                    <h4>شهادات المطابقة والفحص</h4>
-                    <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section">
+<h2>رؤيتنا</h2>
+<p>
+أن نكون من الرواد في تقديم الخدمات الهندسية الاحترافية
+بأعلى جودة ومصداقية.
+</p>
+</section>
 
-    <!-- CEO Quote Section -->
-    <section class="ceo-quote">
-        <div class="container">
-            <div class="quote-content">
-                <img src="ceo-photo.jpg" alt="م. محمود حاتم عزيز" class="ceo-photo">
-                <div class="quote-text">
-                    <h3>كلمة المدير العام</h3>
-                    <h4>م. محمود حاتم عزيز</h4>
-                    <p class="quote">
-                        "قيادة المشاريع الهندسية ليست فقط حسابات وتصاميم، بل رؤية وإيمان بأن التفاصيل تصنع الفارق. 
-                        أحمل رؤية واضحة لتطوير قطاع الاستشارات الهندسية في المملكة وفقاً لمعايير الجودة، والابتكار، والدقة."
-                    </p>
-                    <p class="position">المدير العام والمدير التنفيذي لشركة هامات عزيز للاستشارات الهندسية</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section">
+<h2>خدماتنا</h2>
+<div class="services">
+<div class="service-box">الاستشارات الهندسية</div>
+<div class="service-box">السلامة ومكافحة الحريق</div>
+<div class="service-box">الإشراف الهندسي</div>
+<div class="service-box">الدراسات والتقارير الفنية</div>
+</div>
+</section>
 
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title">فريق العمل</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <img src="mahmoud.jpg" alt="م. محمود حاتم عزيز" class="team-photo">
-                    <h4>المهندس محمود حاتم عزيز</h4>
-                    <p class="position">المدير العام والمدير التنفيذي</p>
-                    <p class="bio">خبرة أكثر من 11 عام في مجال السلامة والحماية من الحريق</p>
-                </div>
-                <div class="team-card">
-                    <img src="youssef.jpg" alt="الأستاذ يوسف حاتم عزيز" class="team-photo">
-                    <h4>الأستاذ يوسف حاتم عزيز</h4>
-                    <p class="position">المدير العام</p>
-                    <p class="bio">خبرة في الإدارة المالية وإدارة المشاريع</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section">
+<h2>كلمة المدير العام</h2>
+<div class="manager">
+<img src="myphoto.jpeg">
+<div>
+<p>
+نؤمن بأن الهندسة مسؤولية قبل أن تكون مهنة،
+ونسعى لتقديم أفضل الحلول الهندسية باحترافية عالية.
+</p>
+<strong>م. محمود حاتم عزيز</strong><br>
+المدير العام
+</div>
+</div>
+</section>
 
-    <!-- Branches Section -->
-    <section id="branches" class="branches">
-        <div class="container">
-            <h2 class="section-title">فروعنا حول العالم</h2>
-            <div class="branches-grid">
-                <div class="branch-card">
-                    <div class="branch-left-border"></div>
-                    <div class="branch-content">
-                        <h4>شركة هامات عزيز للاستشارات الهندسية</h4>
-                        <p>المكتب الرئيسي بالمملكة العربية السعودية - تبوك</p>
-                    </div>
-                    <div class="branch-flag">🇸🇦</div>
-                </div>
+<section class="section">
+<h2>تواصل معنا</h2>
+<p>📞 0530180614</p>
+<p>✉ CEO@HAZEEZ.NET</p>
+</section>
 
-                <div class="branch-card">
-                    <div class="branch-left-border"></div>
-                    <div class="branch-content">
-                        <h4>فرع الجمهورية التركية</h4>
-                        <p>إسطنبول - حي الحريات</p>
-                    </div>
-                    <div class="branch-flag">🇹🇷</div>
-                </div>
+<footer>
+© 2025 شركة هامات عزيز للاستشارات الهندسية
+</footer>
 
-                <div class="branch-card">
-                    <div class="branch-left-border"></div>
-                    <div class="branch-content">
-                        <h4>Sirte United Company for Engineering Consulting LLC</h4>
-                        <p>N Gould St, Ste R, Sheridan, WY 82801 30 - فرع أمريكا</p>
-                    </div>
-                    <div class="branch-flag">🇺🇸</div>
-                </div>
-
-                <div class="branch-card">
-                    <div class="branch-left-border"></div>
-                    <div class="branch-content">
-                        <h4>SIRTE UNITED COMPANY FOR ENGINEERING CONSULTING LTD</h4>
-                        <p>Shelton Street, Covent Garden, 75-71 - فرع بريطانيا London, WC2H 9JQ</p>
-                    </div>
-                    <div class="branch-flag">🇬🇧</div>
-                </div>
-
-                <div class="branch-card">
-                    <div class="branch-left-border"></div>
-                    <div class="branch-content">
-                        <h4>شركة سرت المتحدة للاستشارات الهندسية</h4>
-                        <p>فرع الجمهورية اليمنية - محافظة تعز</p>
-                    </div>
-                    <div class="branch-flag">🇾🇪</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">تواصل معنا</h2>
-            <p class="section-description">نحن دائماً على استعداد للإجابة على استفساراتكم واستقبال طلباتكم</p>
-            <div class="contact-methods">
-                <a href="tel:+966" class="contact-card">
-                    <div class="contact-icon">📞</div>
-                    <h4>اتصل بنا الآن</h4>
-                </a>
-                <a href="mailto:info@hazeez.net" class="contact-card">
-                    <div class="contact-icon">✉️</div>
-                    <h4>راسلنا عبر البريد</h4>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>شركة هامات عزيز</h4>
-                    <p>للاستشارات الهندسية</p>
-                </div>
-                <div class="footer-section">
-                    <h4>روابط سريعة</h4>
-                    <ul>
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#about">من نحن</a></li>
-                        <li><a href="#services">خدماتنا</a></li>
-                        <li><a href="#branches">فروعنا</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>تابعنا</h4>
-                    <div class="social-links">
-                        <a href="https://facebook.com" target="_blank">Facebook</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 شركة هامات عزيز للاستشارات الهندسية. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
