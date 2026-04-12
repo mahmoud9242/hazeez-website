@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>شركة هامات عزيز للاستشارات الهندسية</title>
+  <meta name="description" content="موقع احترافي لشركة هامات عزيز للاستشارات الهندسية مع تصميم عصري وتأثيرات حركية متطورة" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:    oklch(65% .22 35);
+      --primary-fg: oklch(98.5% 0 0);
+      --bg:         oklch(15% .02 35);
+      --bg-raised:  oklch(18.5% .02 35);
+      --card:       oklch(20% .02 35);
+      --border:     oklch(30% .02 35);
+      --fg:         oklch(98.5% 0 0);
+      --fg-muted:   oklch(70% .02 35);
+      --radius:     0.5rem;
+      --muted-foreground: oklch(55% .02 35);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--fg); direction: rtl; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    .badge { display: inline-block; padding: .25rem 1rem; background: oklch(65% .22 35 / .10); color: var(--primary); border-radius: 9999px; font-weight: 700; font-size: .875rem; }
+
+    /* Reveal */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+
+    /* ---- NAVBAR ---- */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: oklch(100% 0.00011 271.152 / 0.939); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-wrap { display: flex; align-items: center; justify-content: space-between; padding: .75rem 1rem; gap: 1rem; }
+    .nav-logo { display: flex; align-items: center; gap: .5rem; text-decoration: none; }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-logo span { font-size: 1.2rem; font-weight: 700; color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 1rem; font-weight: 500; color: oklch(27% 0.00749 17.402 / 0.8); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-btn { background: var(--primary); color: var(--primary-fg); font-family: 'Cairo', sans-serif; font-size: .9rem; font-weight: 700; padding: .5rem 1.25rem; border-radius: var(--radius); border: none; cursor: pointer; text-decoration: none; transition: opacity .2s; white-space: nowrap; }
+    .nav-btn:hover { opacity: .9; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--fg); padding: .5rem; }
+    .hamburger svg { width: 24px; height: 24px; ;color: #000;}
+    .mobile-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 1rem; flex-direction: column; gap: 1rem; box-shadow: 0 8px 24px rgba(0,0,0,.4); }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { text-align: right; font-size: 1rem; font-weight: 500; color: oklch(98.5% 0 0 / .80); text-decoration: none; padding: .5rem 0; border-bottom: 1px solid oklch(59.989% 0.01504 28.699 / 0.5); transition: color .2s; }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--primary); }
+
+    /* ---- HERO ---- */
+    #hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.60); }
+    .hero-content { position: relative; z-index: 10; text-align: center; color: white; padding: 0 1rem; }
+    .hero-title { font-size: clamp(2.25rem,6vw,4.5rem); font-weight: 700; line-height: 1.25; margin-bottom: 1.5rem; }
+    .hero-subtitle { font-size: clamp(1.1rem,2vw,1.5rem); color: #e5e7eb; margin-bottom: 2rem; max-width: 42rem; margin-right: auto; margin-left: auto; }
+    .hero-btns { display: flex; flex-direction: column; gap: 1rem; justify-content: center; align-items: center; }
+    @media (min-width: 640px) { .hero-btns { flex-direction: row; } }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; font-family: 'Cairo', sans-serif; font-weight: 600; font-size: 1.1rem; padding: 1rem 2rem; border-radius: var(--radius); cursor: pointer; text-decoration: none; border: 2px solid transparent; transition: all .25s; line-height: 1; }
+    .btn-primary { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); }
+    .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-ghostub { background: transparent; color: rgb(254, 250, 250); border-color: rgb(236, 234, 234); }
+.btn-ghostub:hover { background: white; color: #000; }
+    .btn-ghost { background: transparent; color: rgb(7, 7, 7); border-color: rgb(37, 36, 36); }
+    .btn-ghost:hover { background: rgb(219, 210, 210); color: #000; }
+
+    /* ---- ABOUT / VISION ---- */
+    #about { padding: 5rem 0; background: white;  }
+    #vision { padding: 5rem 0; background: white; }
+    .two-col { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+    @media (min-width: 1024px) { .two-col { grid-template-columns: 1fr 1fr; } }
+    .img-wrap { position: relative; }
+    .img-deco { position: absolute; inset: -1rem; background: oklch(65% .22 35 / .20); border-radius: 1rem; transform: rotate(3deg); }
+    .img-deco-neg { transform: rotate(-3deg); }
+    .img-wrap img { position: relative; z-index: 1; border-radius: 1rem; box-shadow: 0 25px 50px rgba(0,0,0,.5); width: 100%; height: 400px; object-fit: cover; }
+    .sec-title { font-size: clamp(1.75rem,3vw,2.25rem) ;color: var(--bg); font-weight: 700; margin-bottom: 1rem; }
+    .sec-body { color: var(--muted-foreground); font-size: 1.1rem; line-height: 1.8; }
+    .feat-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+    .feat-item { display: flex; align-items: center; gap: .75rem; font-weight: 500; font-size: 1rem;  color: var(--muted-foreground); }
+    .feat-icon { color: var(--primary); width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+    .vis-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem; }
+    .vis-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .vis-icon { color: var(--primary); width: 1.5rem; height: 1.5rem; flex-shrink: 0; margin-top: .2rem; }
+    .vis-title { font-weight: 700; font-size: 1rem; margin-bottom: .2rem; color: #000;}
+    .vis-text { font-size: .875rem; color: var(--bg-raised); }
+
+    /* ---- SERVICES ---- */
+    #services { padding: 5rem 0; background-color: #fffffff7;}
+    .sec-center { text-align: center; margin-bottom: 3rem; }
+    .svc-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    @media (min-width: 768px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (min-width: 1024px) { .svc-grid { grid-template-columns: repeat(3,1fr); } }
+    .svc-card { background: white ; border: 1px solid rgba(255, 255, 255, 0.888); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all .3s; }
+    .svc-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,.4); transform: translateY(-4px); }
+    .svc-icon { margin-bottom: 1rem; padding: 1rem; background: oklch(79.738% 0.06904 47.315 / 0.248); border-radius: 9999px; color: var(--primary); transition: all .3s; }
+    .svc-card:hover .svc-icon { background: var(--primary); color: var(--primary-fg); }
+    .svc-icon svg { width: 28px; height: 28px; }
+    .svc-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem;color: #000; }
+    .svc-card p { font-size: .875rem; color: var(--fg-muted); line-height: 1.7; }
+
+    /* ---- CEO ---- */
+    #ceo { padding: 5rem 0; background: var(--primary); color: var(--primary-fg); position: relative; overflow: hidden; }
+    .ceo-deco { position: absolute; inset: 0; opacity: .10; background-image: url('https://hazeezengg-asmx9kow.manus.space/images/services-bg.jpg'); background-size: cover; background-position: center; }
+    .ceo-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 3rem; }
+    @media (min-width: 768px) { .ceo-inner { flex-direction: row; } }
+    .ceo-photo { flex-shrink: 0; aspect-ratio: 1; width: 100%; max-width: 300px; border-radius: 9999px; overflow: hidden; border: 4px solid oklch(98.5% 0 0 / .20); box-shadow: 0 25px 50px rgba(0,0,0,.4); margin: 0 auto; }
+    .ceo-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .ceo-text { flex: 1; text-align: center; }
+    @media (min-width: 768px) { .ceo-text { text-align: right; } }
+    .ceo-name { font-size: 1.875rem; font-weight: 700; margin-bottom: .5rem; }
+    .ceo-role { font-size: 1.25rem; font-weight: 500; opacity: .9; margin-bottom: 1.5rem; }
+    .ceo-quote { font-size: clamp(1rem,1.5vw,1.375rem); font-weight: 300; font-style: italic; line-height: 1.8; margin-bottom: 1.5rem; opacity: .95; }
+    .ceo-caption { font-size: .95rem; opacity: .80; }
+
+    /* ---- BRANCHES ---- */
+    #branches { padding: 5rem 0; background: var(--primary-fg); }
+    .br-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 62rem; margin: 0 auto; }
+    @media (min-width: 768px) { .br-grid { grid-template-columns: repeat(2,1fr); } }
+    .br-card { display: flex; gap: 1rem; padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--fg-muted); background: var(--primary-fg); transition: all .3s; position: relative; overflow: hidden; }
+    .br-card::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 4px; background: var(--primary); border-radius: 0 var(--radius) var(--radius) 0; }
+    .br-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,.3); transform: translateY(-3px); }
+    .br-flag { flex-shrink: 0; width: 4rem; height: 4rem; border: 2px solid var(--primary); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; background: var(--primary-fg); font-size: 2rem; }
+    .br-name { font-weight: 700; font-size: 1rem; text-align: right; margin-bottom: .4rem; line-height: 1.4; color: #000;}
+    .br-addr { font-size: .875rem; color: var(--fg-muted); text-align: right; line-height: 1.6; }
+
+    /* ---- CONTACT ---- */
+    #contact { padding: 5rem 0; background-color: rgba(255, 255, 255, 0.968);}
+    .ct-wrap { text-align: center; }
+    .ct-title { font-size: clamp(1.75rem,3vw,2.25rem); font-weight: 700; margin-bottom: 2rem; color: var(--bg);}
+    .ct-desc { font-size: 1.25rem; color: var(--fg-muted); margin-bottom: 3rem; }
+    .ct-btns { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; gap: 1.5rem; align-items: center; }
+    @media (min-width: 640px) { .ct-btns { flex-direction: row; } }
+    .ct-btns .btn { height: 3.5rem; padding: 0 2rem; }
+
+    /* ---- FOOTER ---- */
+    footer { background: oklch(0.33 0.07 36.36); color: var(--fg-muted); padding: 4rem 0 2rem; }
+    .ft-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
+    @media (min-width: 768px) { .ft-grid { grid-template-columns: repeat(3,1fr); } }
+    .ft-brand { display: flex; align-items: center; gap: .5rem; text-decoration: none; margin-bottom: 1rem; }
+    .ft-brand img { height: 50px; width: auto; }
+    .ft-brand span { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
+    .ft-desc { font-size: .875rem; line-height: 1.8; }
+    .ft-col-title { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; }
+    .ft-links { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+    .ft-links a { font-size: .875rem; color: var(--fg-muted); text-decoration: none; transition: color .2s; }
+    .ft-links a:hover { color: var(--primary); }
+    .ft-cis { display: flex; flex-direction: column; gap: .75rem; }
+    .ft-ci { display: flex; align-items: flex-start; gap: .75rem; font-size: .875rem; }
+    .ft-ci svg { width: 16px; height: 16px; color: var(--primary); flex-shrink: 0; margin-top: 2px; }
+    .ft-ci a, .ft-ci span { color: var(--fg-muted); text-decoration: none; transition: color .2s; }
+    .ft-ci a:hover { color: var(--primary); }
+    .ft-bottom { border-top: 1px solid var(--border); padding-top: 2rem; text-align: center; font-size: .875rem; }
+
+    @media (max-width: 767px) { .nav-links, .nav-btn { display: none; } .hamburger { display: block; } }
+    @media (min-width: 768px) { .mobile-nav { display: none !important; } }
+  </style>
+</head>
+<body>
+
+<!-- ============================= NAVBAR ============================= -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="https://hazeezengg-asmx9kow.manus.space/images/logo.png" alt="هامات عزيز" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero">الرئيسية</a></li>
+        <li><a href="#about">من نحن</a></li>
+        <li><a href="#vision">رؤيتنا</a></li>
+        <li><a href="#services">خدماتنا</a></li>
+        <li><a href="team.html">فريق العمل</a></li>
+        <li><a href="#branches">فروعنا</a></li>
+      </ul>
+      <a href="#contact" class="nav-btn">اطلب استشارة</a>
+      <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+    </div>
+    <div class="mobile-nav" id="mob">
+      <a href="#hero"     onclick="document.getElementById('mob').classList.remove('open')">الرئيسية</a>
+      <a href="#about"    onclick="document.getElementById('mob').classList.remove('open')">من نحن</a>
+      <a href="#vision"   onclick="document.getElementById('mob').classList.remove('open')">رؤيتنا</a>
+      <a href="#services" onclick="document.getElementById('mob').classList.remove('open')">خدماتنا</a>
+      <a href="team.html" onclick="document.getElementById('mob').classList.remove('open')">فريق العمل</a>
+      <a href="#branches" onclick="document.getElementById('mob').classList.remove('open')">فروعنا</a>
+      <a href="#contact"  onclick="document.getElementById('mob').classList.remove('open')">تواصل معنا</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================= HERO ============================= -->
+<section id="hero">
+  <img src="https://hazeezengg-asmx9kow.manus.space/images/hero-bg.jpg" alt="" class="hero-img" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content fade-up">
+    <h1 class="hero-title">هامات عزيز<br/> <span style="color: var(--primary);"> للاستشارات الهندسية</span></h1>
+    <p class="hero-subtitle">نحو بناء هندسي احترافي يواكب رؤية المملكة 2030</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn btn-primary">خدماتنا</a>
+      <a href="#contact"  class="btn btn-ghostub">تواصل معنا</a>
+      <a href="#about"    class="btn btn-ghostub">من نحن</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ABOUT ============================= -->
+<section id="about">
+  <div class="container">
+    <div class="two-col">
+      <div class="fade-up">
+        <span class="badge">من نحن</span>
+        <h2 class="sec-title" style="margin-top:.75rem">الجودة والابتكار والدقة في قلب كل مشروع</h2>
+        <p class="sec-body">نحن في شركة هامات عزيز للاستشارات الهندسية نضع الجودة، والابتكار، والدقة في قلب كل مشروع. بخبرة هندسية تمتد عبر سنوات من العمل الميداني والتخطيط الاستراتيجي، نسعى لتقديم حلول استشارية متكاملة تلبي أعلى معايير البناء والتطوير في المملكة العربية السعودية.</p>
+        <div class="feat-list">
+          <div class="feat-item">
+            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            خبرة تمتد لسنوات
+          </div>
+          <div class="feat-item">
+            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            فريق عمل محترف
+          </div>
+          <div class="feat-item">
+            <svg class="feat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            حلول مبتكرة
+          </div>
+        </div>
+      </div>
+      <div class="img-wrap fade-up" style="transition-delay:.15s">
+        <div class="img-deco"></div>
+        <img src="https://hazeezengg-asmx9kow.manus.space/images/vision-bg.jpg" alt="About Us" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= VISION ============================= -->
+<section id="vision">
+  <div class="container">
+    <div class="two-col">
+      <div class="img-wrap fade-up">
+        <div class="img-deco img-deco-neg"></div>
+        <img src="https://hazeezengg-asmx9kow.manus.space/images/services-bg.jpg" alt="رؤيتنا" />
+      </div>
+      <div class="fade-up" style="transition-delay:.15s">
+        <span class="badge">رؤيتنا</span>
+        <h2 class="sec-title" style="margin-top:.75rem">نحو مستقبل هندسي احترافي</h2>
+        <p class="sec-body">نحو مستقبل هندسي احترافي يواكب تطلعات المملكة في التنمية المستدامة وجودة الحياة، من خلال شراكات فاعلة وأفكار مبتكرة.</p>
+        <div class="vis-list">
+          <div class="vis-item">
+            <svg class="vis-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div>
+              <div class="vis-title">التنمية المستدامة</div>
+              <div class="vis-text">بناء مستقبل يراعي البيئة والموارد الطبيعية</div>
+            </div>
+          </div>
+          <div class="vis-item">
+            <svg class="vis-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <div>
+              <div class="vis-title">جودة الحياة</div>
+              <div class="vis-text">تحسين معايير العيش والخدمات للمجتمع</div>
+            </div>
+          </div>
+          <div class="vis-item">
+            <svg class="vis-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg>
+            <div>
+              <div class="vis-title">الشراكات الفاعلة</div>
+              <div class="vis-text">التعاون مع أفضل الكفاءات والمؤسسات</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= SERVICES ============================= -->
+<section id="services">
+  <div class="container">
+    <div class="sec-center fade-up">
+      <span class="badge">خدماتنا</span>
+      <h2 class="sec-title" style="margin-top:.75rem">خدماتنا الهندسية</h2>
+      <p class="sec-body" style="max-width:40rem;margin:0 auto">نقدم مجموعة متكاملة من الخدمات الهندسية والاستشارية لتلبية جميع احتياجات مشاريعكم</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card fade-up" style="transition-delay:.05s">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h3>الدراسات والتصميمات الهندسية</h3>
+        <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:.10s">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>الإشراف الفني على المشاريع</h3>
+        <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:.15s">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>إعداد التقارير الفنية والتحليلية</h3>
+        <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:.20s">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
+        <h3>التخطيط الحضري والعمراني</h3>
+        <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:.25s">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>تصميم مخططات السلامة</h3>
+        <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
+      </div>
+      <div class="svc-card fade-up" style="transition-delay:.30s">
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <h3>شهادات المطابقة والفحص</h3>
+        <p>تنفيذ بدقة عالية وباستخدام أحدث الأدوات والتقنيات الهندسية</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CEO ============================= -->
+<section id="ceo">
+  <div class="ceo-deco"></div>
+  <div class="container">
+    <div class="ceo-inner fade-up">
+      <div class="ceo-photo">
+        <img src="https://hazeezengg-asmx9kow.manus.space/images/manager.jpeg" alt="م. محمود حاتم عزيز" />
+      </div>
+      <div class="ceo-text">
+        <div class="ceo-name">م. محمود حاتم عزيز</div>
+        <div class="ceo-role">كلمة المدير العام</div>
+        <blockquote class="ceo-quote">"قيادة المشاريع الهندسية ليست فقط حسابات وتصاميم، بل رؤية وإيمان بأن التفاصيل تصنع الفارق. أحمل رؤية واضحة لتطوير قطاع الاستشارات الهندسية في المملكة وفقاً لمعايير الجودة، والابتكار، والدقة."</blockquote>
+        <div class="ceo-caption">المدير العام والمدير التنفيذي لشركة هامات عزيز للاستشارات الهندسية</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= BRANCHES ============================= -->
+<section id="branches">
+  <div class="container">
+    <div class="sec-center fade-up">
+      <h2 class="sec-title">فروعنا حول العالم</h2>
+    </div>
+    <div class="br-grid">
+      <div class="br-card fade-up" style="transition-delay:.05s">
+        <div class="br-flag">🇸🇦</div>
+        <div>
+          <div class="br-name">شركة هامات عزيز للاستشارات الهندسية</div>
+          <div class="br-addr">المكتب الرئيسي بالمملكة العربية السعودية - تبوك</div>
+        </div>
+      </div>
+      <div class="br-card fade-up" style="transition-delay:.10s">
+        <div class="br-flag">🇹🇷</div>
+        <div>
+          <div class="br-name">فرع الجمهورية التركية</div>
+          <div class="br-addr">إسطنبول - حي الحريات</div>
+        </div>
+      </div>
+      <div class="br-card fade-up" style="transition-delay:.15s">
+        <div class="br-flag">🇺🇸</div>
+        <div>
+          <div class="br-name">Sirte United Company for Engineering Consulting LLC</div>
+          <div class="br-addr">N Gould St, Ste R, Sheridan, WY 82801 — فرع أمريكا</div>
+        </div>
+      </div>
+      <div class="br-card fade-up" style="transition-delay:.20s">
+        <div class="br-flag">🇬🇧</div>
+        <div>
+          <div class="br-name">SIRTE UNITED COMPANY FOR ENGINEERING CONSULTING LTD</div>
+          <div class="br-addr">Shelton Street, Covent Garden, 75-71 — فرع بريطانيا London, WC2H 9JQ</div>
+        </div>
+      </div>
+      <div class="br-card fade-up" style="transition-delay:.25s">
+        <div class="br-flag">🇾🇪</div>
+        <div>
+          <div class="br-name">شركة سرت المتحدة للاستشارات الهندسية</div>
+          <div class="br-addr">فرع الجمهورية اليمنية - محافظة تعز</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CONTACT ============================= -->
+<section id="contact">
+  <div class="container">
+    <div class="ct-wrap fade-up">
+      <h2 class="ct-title">تواصل معنا</h2>
+      <p class="ct-desc">نحن دائماً على استعداد للإجابة على استفساراتكم واستقبال طلباتكم</p>
+      <div class="ct-btns">
+        <a href="tel:0500908600" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16Z"/></svg>
+          اتصل بنا الآن
+        </a>
+        <a href="mailto:CEO@HAZEEZ.NET" class="btn btn-ghost">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          راسلنا عبر البريد
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div>
+        <a href="index.html" class="ft-brand">
+          <img src="https://hazeezengg-asmx9kow.manus.space/images/logo.png" alt="هامات عزيز" />
+        </a>
+        <p class="ft-desc">نحو مستقبل هندسي احترافي يواكب تطلعات المملكة في التنمية المستدامة وجودة الحياة، من خلال شراكات فاعلة وأفكار مبتكرة.</p>
+      </div>
+      <div>
+        <div class="ft-col-title">روابط سريعة</div>
+        <ul class="ft-links">
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#services">خدماتنا</a></li>
+          <li><a href="#vision">رؤيتنا</a></li>
+          <li><a href="#branches">فروعنا</a></li>
+          <li><a href="privacy-policy.html">سياسة الخصوصية</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-title">تواصل معنا</div>
+        <div class="ft-cis">
+          <div class="ft-ci">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16Z"/></svg>
+            <a href="tel:0500908600">0500908600</a>
+          </div>
+          <div class="ft-ci">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:CEO@HAZEEZ.NET">CEO@HAZEEZ.NET</a>
+          </div>
+          <div class="ft-ci">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>المملكة العربية السعودية - تبوك</span>
+          </div>
+          <div class="ft-ci">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <a href="#">صفحتنا على فيسبوك</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom" style="display:flex;flex-direction:column;gap:.5rem;align-items:center;">
+      <p>© 2026 شركة هامات عزيز للاستشارات الهندسية. جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  // Trigger hero immediately
+  window.addEventListener('load', () => {
+    const h = document.querySelector('#hero .fade-up');
+    if (h) setTimeout(() => h.classList.add('in'), 80);
+  });
+</script>
+</body>
+</html>
