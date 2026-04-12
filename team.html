@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فريق العمل - شركة هامات عزيز للاستشارات الهندسية</title>
+  <meta name="description" content="فريق متخصص من المهندسين والاستشاريين ذوي الخبرة العالية والكفاءة المهنية" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:    oklch(65% .22 35);
+      --primary-fg: oklch(98.5% 0 0);
+      --bg:         oklch(15% .02 35);
+      --bg-raised:  oklch(18.5% .02 35);
+      --card:       oklch(20% .02 35);
+      --border:     oklch(30% .02 35);
+      --fg:         oklch(98.5% 0 0);
+      --fg-muted:   oklch(70% .02 35);
+      --radius:     0.5rem;
+      --muted-foreground: oklch(55% .02 35);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--fg); direction: rtl; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    
+    .badge { display: inline-block; padding: .25rem 1rem; background: oklch(65% .22 35 / .10); color: var(--primary); border-radius: 9999px; font-weight: 700; font-size: .875rem; }
+
+    /* Reveal */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+
+    /* ---- NAVBAR ---- */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: oklch(100% 0.00011 271.152 / 0.939); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-wrap { display: flex; align-items: center; justify-content: space-between; padding: .75rem 1rem; gap: 1rem; }
+    .nav-logo { display: flex; align-items: center; gap: .5rem; text-decoration: none; }
+        .nav-inside { display: flex; align-items: center; gap: 1.8rem; }
+
+    .nav-logo img { height: 45px; width: auto; }
+    .nav-logo span { font-size: 1.2rem; font-weight: 700; color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 1rem; font-weight: 500; color: oklch(27% 0.00749 17.402 / 0.8); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+    .nav-btn { background: var(--primary); color: var(--primary-fg); font-family: 'Cairo', sans-serif; font-size: .9rem; font-weight: 700; padding: .5rem 1.25rem; border-radius: var(--radius); border: none; cursor: pointer; text-decoration: none; transition: opacity .2s; white-space: nowrap; }
+    .nav-btn:hover { opacity: .9; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--fg); padding: .5rem; }
+    .hamburger svg { width: 24px; height: 24px; color: #000; }
+    .mobile-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 1rem; flex-direction: column; gap: 1rem; box-shadow: 0 8px 24px rgba(0,0,0,.4); }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { text-align: right; font-size: 1rem; font-weight: 500; color: oklch(98.5% 0 0 / .80); text-decoration: none; padding: .5rem 0; border-bottom: 1px solid oklch(59.989% 0.01504 28.699 / 0.5); transition: color .2s; }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--primary); }
+
+    /* ---- TEAM HERO ---- */
+    #team-hero { position: relative; padding: 8rem 0 5rem; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--bg); }
+    .team-hero-overlay { position: absolute; inset: 0; background: oklch(0.33 0.07 36.36);  }
+    .team-hero-deco { position: absolute; inset: 0; opacity: .05; background-image: url('https://hazeezengg-asmx9kow.manus.space/images/services-bg.jpg'); background-size: cover; background-position: center; }
+    .team-hero-content { position: relative; z-index: 10; text-align: center; color: white; padding: 0 1rem; }
+    .team-hero-title { font-size: clamp(2.25rem,6vw,3.5rem); font-weight: 700; line-height: 1.25; margin-bottom: 1rem; }
+    .team-hero-subtitle { font-size: clamp(1rem,2vw,1.25rem); color: #e5e7eb; max-width: 42rem; margin: 0 auto; }
+
+    /* ---- TEAM MEMBERS ---- */
+    #team-members { padding: 5rem 0; background: white; }
+    .sec-center { text-align: center; margin-bottom: 3rem; }
+    .sec-title { font-size: clamp(1.75rem,3vw,2.25rem); color: var(--bg); font-weight: 700; margin-bottom: 1rem; }
+    .sec-body { color: var(--muted-foreground); font-size: 1.1rem; line-height: 1.8; }
+    .team-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    @media (min-width: 640px) { .team-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (min-width: 1024px) { .team-grid { grid-template-columns: repeat(2,1fr); max-width: 800px; margin: 0 auto; } }
+    .team-card { background: white; border: 1px solid oklch(90% .01 35); border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: all .3s; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .team-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.15); transform: translateY(-6px); }
+    .team-card-photo { width: 100%; height: 280px; overflow: hidden; position: relative; }
+    .team-card-photo img { width: 68%; height: 100%; object-fit: cover; object-position: top; transition: transform .4s; }
+    .team-card:hover .team-card-photo img { transform: scale(1.05); }
+    .team-card-badge { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,.7), transparent); padding: 2rem 1rem .75rem; }
+    .team-card-body { padding: 1.5rem; width: 100%; }
+    .team-card-name { font-size: 1.2rem; font-weight: 700; color: #111; margin-bottom: .4rem; }
+    .team-card-role { font-size: .95rem; font-weight: 600; color: var(--primary); margin-bottom: .75rem; }
+    .team-card-exp { font-size: .875rem; color: var(--muted-foreground); line-height: 1.7; }
+    .team-card-divider { width: 40px; height: 3px; background: var(--primary); border-radius: 9999px; margin: .75rem auto; }
+
+    /* ---- ABOUT TEAM ---- */
+    #about-team { padding: 5rem 0; background: oklch(97% .005 35); }
+    .about-team-inner { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+    @media (min-width: 1024px) { .about-team-inner { grid-template-columns: 1fr ; } }
+    .about-team-text .sec-title { color: var(--bg); }
+    .about-team-text p { color: var(--muted-foreground); font-size: 1rem; line-height: 1.9; margin-bottom: 1rem; }
+    .about-team-img { position: relative; }
+    .about-team-img-deco { position: absolute; inset: -1rem; background: oklch(65% .22 35 / .15); border-radius: 1rem; transform: rotate(3deg); }
+    .about-team-img img { position: relative; z-index: 1; border-radius: 1rem; box-shadow: 0 25px 50px rgba(0,0,0,.2); width: 100%; height: 380px; object-fit: cover; }
+    .stat-row { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; }
+    .stat-label { font-size: .8rem; color: var(--muted-foreground); margin-top: .25rem; }
+
+    /* ---- CONTACT ---- */
+    #contact { padding: 5rem 0; background-color: rgba(255,255,255,0.968); }
+    .ct-wrap { text-align: center; }
+    .ct-title { font-size: clamp(1.75rem,3vw,2.25rem); font-weight: 700; margin-bottom: 2rem; color: var(--bg); }
+    .ct-desc { font-size: 1.25rem; color: var(--fg-muted); margin-bottom: 3rem; }
+    .ct-btns { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; gap: 1.5rem; align-items: center; }
+    @media (min-width: 640px) { .ct-btns { flex-direction: row; } }
+    .ct-btns .btn { height: 3.5rem; padding: 0 2rem; }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; font-family: 'Cairo', sans-serif; font-weight: 600; font-size: 1.1rem; padding: 1rem 2rem; border-radius: var(--radius); cursor: pointer; text-decoration: none; border: 2px solid transparent; transition: all .25s; line-height: 1; }
+    .btn-primary { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); }
+    .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: rgb(7,7,7); border-color: rgb(37,36,36); }
+    .btn-ghost:hover { background: rgb(219,210,210); color: #000; }
+
+    /* ---- FOOTER ---- */
+    footer { background: oklch(0.33 0.07 36.36); color: var(--fg-muted); padding: 4rem 0 2rem; }
+    .ft-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
+    @media (min-width: 768px) { .ft-grid { grid-template-columns: repeat(3,1fr); } }
+    .ft-brand { display: flex; align-items: center; gap: .5rem; text-decoration: none; margin-bottom: 1rem; }
+    .ft-brand img { height: 50px; width: auto; }
+    .ft-brand span { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
+    .ft-desc { font-size: .875rem; line-height: 1.8; }
+    .ft-col-title { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; }
+    .ft-links { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+    .ft-links a { font-size: .875rem; color: var(--fg-muted); text-decoration: none; transition: color .2s; }
+    .ft-links a:hover { color: var(--primary); }
+    .ft-cis { display: flex; flex-direction: column; gap: .75rem; }
+    .ft-ci { display: flex; align-items: flex-start; gap: .75rem; font-size: .875rem; }
+    .ft-ci svg { width: 16px; height: 16px; color: var(--primary); flex-shrink: 0; margin-top: 2px; }
+    .ft-ci a, .ft-ci span { color: var(--fg-muted); text-decoration: none; transition: color .2s; }
+    .ft-ci a:hover { color: var(--primary); }
+    .ft-bottom { border-top: 1px solid var(--border); padding-top: 2rem; text-align: center; font-size: .875rem; }
+
+    @media (max-width: 767px) { .nav-links, .nav-btn { display: none; } .hamburger { display: block; } }
+    @media (min-width: 768px) { .mobile-nav { display: none !important; } }
+    #lang-toggle { background: transparent; border: 1.5px solid oklch(27% 0.00749 17.402 / 0.5); color: oklch(27% 0.00749 17.402 / 0.8); font-family: 'Cairo', sans-serif; font-size: .85rem; font-weight: 700; padding: .3rem .8rem; border-radius: var(--radius); cursor: pointer; transition: all .2s; letter-spacing: .05em; }
+    #lang-toggle:hover { background: var(--primary); border-color: var(--primary); color: var(--primary-fg); }
+    html[dir="ltr"] body { direction: ltr; }
+    html[dir="ltr"] .mobile-nav a { text-align: left; }
+  </style>
+</head>
+<body>
+
+<!-- ============================= NAVBAR ============================= -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-wrap">
+
+      <a href="index.html" class="nav-logo">
+        <img src="https://hazeezengg-asmx9kow.manus.space/images/logo.png" alt="هامات عزيز" />
+      </a>
+            <div class=nav-inside> 
+
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav-home">الرئيسية</a></li>
+        <li><a href="index.html#about" data-i18n="nav-about">من نحن</a></li>
+        <li><a href="index.html#vision" data-i18n="nav-vision">رؤيتنا</a></li>
+        <li><a href="index.html#services" data-i18n="nav-services">خدماتنا</a></li>
+        <li><a href="team.html" class="active" data-i18n="nav-team">فريق العمل</a></li>
+        <li><a href="index.html#branches" data-i18n="nav-branches">فروعنا</a></li>
+      </ul>
+      <a href="#contact" class="nav-btn" data-i18n="nav-cta">اطلب استشارة</a>
+      <button id="lang-toggle" onclick="toggleLang()">EN</button>
+      <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+           </div>
+
+    </div>
+    <div class="mobile-nav" id="mob">
+      <a href="index.html"          onclick="document.getElementById('mob').classList.remove('open')" data-i18n="nav-home">الرئيسية</a>
+      <a href="index.html#about"    onclick="document.getElementById('mob').classList.remove('open')" data-i18n="nav-about">من نحن</a>
+      <a href="index.html#vision"   onclick="document.getElementById('mob').classList.remove('open')" data-i18n="nav-vision">رؤيتنا</a>
+      <a href="index.html#services" onclick="document.getElementById('mob').classList.remove('open')" data-i18n="nav-services">خدماتنا</a>
+      <a href="team.html"           onclick="document.getElementById('mob').classList.remove('open')" data-i18n="nav-team">فريق العمل</a>
+      <a href="index.html#branches" onclick="document.getElementById('mob').classList.remove('open')" data-i18n="nav-branches">فروعنا</a>
+      <a href="#contact"            onclick="document.getElementById('mob').classList.remove('open')" data-i18n="nav-contact">تواصل معنا</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================= TEAM HERO ============================= -->
+<section id="team-hero">
+  <div class="team-hero-deco"></div>
+  <div class="team-hero-overlay"></div>
+  <div class="team-hero-content fade-up">
+    <span class="badge" style="margin-bottom:1rem;display:inline-block;" data-i18n="hero-badge">فريق العمل</span>
+    <h1 class="team-hero-title" data-i18n="hero-title">فريق العمل</h1>
+    <p class="team-hero-subtitle" data-i18n="hero-sub">فريق متخصص من المهندسين والاستشاريين ذوي الخبرة العالية والكفاءة المهنية</p>
+  </div>
+</section>
+
+<!-- ============================= TEAM MEMBERS ============================= -->
+<section id="team-members">
+  <div class="container">
+    <div class="sec-center fade-up">
+      <span class="badge" data-i18n="members-badge">أعضاء الفريق</span>
+      <h2 class="sec-title" style="margin-top:.75rem" data-i18n="members-title">كادر هامات عزيز الهندسي</h2>
+      <p class="sec-body" style="max-width:40rem;margin:0 auto" data-i18n="members-sub">نفخر بفريق من الكفاءات الهندسية المتخصصة التي تجمع بين الخبرة العملية والرؤية المستقبلية</p>
+    </div>
+    <div class="team-grid">
+
+      <!-- Member 1 -->
+      <div class="team-card fade-up" style="transition-delay:.05s">
+        <div class="team-card-photo">
+          <img src="https://hazeezengg-asmx9kow.manus.space/images/mahmoud.png" alt="م. محمود حاتم عزيز" />
+          <div class="team-card-badge"></div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name" data-i18n="m1-name">م. محمود حاتم عزيز</div>
+          <div class="team-card-divider"></div>
+          <div class="team-card-role" data-i18n="m1-role">المدير العام والمدير التنفيذي</div>
+          <div class="team-card-exp" data-i18n="m1-exp">خبرة أكثر من 11 عام في مجال السلامة والحماية من الحريق</div>
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="team-card fade-up" style="transition-delay:.10s">
+        <div class="team-card-photo">
+          <img src="https://hazeezengg-asmx9kow.manus.space/images/youssef.png" alt="الأستاذ يوسف حاتم عزيز" />
+          <div class="team-card-badge"></div>
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-name" data-i18n="m2-name">الأستاذ يوسف حاتم عزيز</div>
+          <div class="team-card-divider"></div>
+          <div class="team-card-role" data-i18n="m2-role">المدير العام</div>
+          <div class="team-card-exp" data-i18n="m2-exp">خبرة في الإدارة المالية وإدارة المشاريع</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ABOUT TEAM ============================= -->
+<section id="about-team">
+  <div class="container">
+    <div class="sec-center fade-up">
+      <div class="about-team-text fade-up">
+        <span class="badge" data-i18n="about-badge">عن فريقنا</span>
+        <h2 class="sec-title" style="margin-top:.75rem" data-i18n="about-title">عن فريقنا</h2>
+        <p data-i18n="about-p1">فريق هامات عزيز للاستشارات الهندسية يتكون من مهندسين واستشاريين متخصصين بخبرات عملية طويلة في مجال الاستشارات الهندسية والإشراف على المشاريع الكبرى.</p>
+        <p data-i18n="about-p2">نؤمن بأن النجاح يأتي من خلال التعاون الفعال والالتزام بأعلى معايير الجودة والدقة في كل مشروع نتولاه.</p>
+        <p data-i18n="about-p3">فريقنا مجهز بأحدث التقنيات والأدوات الهندسية، ولديه القدرة على التعامل مع المشاريع المعقدة وتقديم حلول مبتكرة تلبي احتياجات السوق المتغيرة.</p>
+       
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CONTACT ============================= -->
+<section id="contact">
+  <div class="container">
+    <div class="ct-wrap fade-up">
+      <h2 class="ct-title" data-i18n="ct-title">تواصل معنا</h2>
+      <p class="ct-desc" data-i18n="ct-desc">نحن دائماً على استعداد للإجابة على استفساراتكم واستقبال طلباتكم</p>
+      <div class="ct-btns">
+        <a href="tel:0500908600" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16Z"/></svg>
+          <span data-i18n="ct-btn1">اتصل بنا الآن</span>
+        </a>
+        <a href="mailto:CEO@HAZEEZ.NET" class="btn btn-ghost">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span data-i18n="ct-btn2">راسلنا عبر البريد</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div>
+        <a href="index.html" class="ft-brand">
+          <img src="https://hazeezengg-asmx9kow.manus.space/images/logo.png" alt="هامات عزيز" />
+        </a>
+        <p class="ft-desc" data-i18n="ft-desc">نحو مستقبل هندسي احترافي يواكب تطلعات المملكة في التنمية المستدامة وجودة الحياة، من خلال شراكات فاعلة وأفكار مبتكرة.</p>
+      </div>
+      <div>
+        <div class="ft-col-title" data-i18n="ft-links-title">روابط سريعة</div>
+        <ul class="ft-links">
+          <li><a href="index.html#about" data-i18n="ft-link1">من نحن</a></li>
+          <li><a href="index.html#services" data-i18n="ft-link2">خدماتنا</a></li>
+          <li><a href="index.html#vision" data-i18n="ft-link3">رؤيتنا</a></li>
+          <li><a href="index.html#branches" data-i18n="ft-link4">فروعنا</a></li>
+          <li><a href="privacy-policy.html" data-i18n="ft-link5">سياسة الخصوصية</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-title" data-i18n="ft-contact-title">تواصل معنا</div>
+        <div class="ft-cis">
+          <div class="ft-ci">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16Z"/></svg>
+            <a href="tel:0500908600">0500908600</a>
+          </div>
+          <div class="ft-ci">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:CEO@HAZEEZ.NET">CEO@HAZEEZ.NET</a>
+          </div>
+          <div class="ft-ci">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-i18n="ft-location">المملكة العربية السعودية - تبوك</span>
+          </div>
+          <div class="ft-ci">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <a href="#" data-i18n="ft-fb">صفحتنا على فيسبوك</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom" style="display:flex;flex-direction:column;gap:.5rem;align-items:center;">
+      <p data-i18n="ft-copy">© 2026 شركة هامات عزيز للاستشارات الهندسية. جميع الحقوق محفوظة.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  window.addEventListener('load', () => {
+    const h = document.querySelector('#team-hero .fade-up');
+    if (h) setTimeout(() => h.classList.add('in'), 80);
+  });
+
+  const translations = {
+    ar: {
+      'nav-home':'الرئيسية','nav-about':'من نحن','nav-vision':'رؤيتنا','nav-services':'خدماتنا',
+      'nav-team':'فريق العمل','nav-branches':'فروعنا','nav-contact':'تواصل معنا','nav-cta':'اطلب استشارة',
+      'hero-badge':'فريق العمل','hero-title':'فريق العمل',
+      'hero-sub':'فريق متخصص من المهندسين والاستشاريين ذوي الخبرة العالية والكفاءة المهنية',
+      'members-badge':'أعضاء الفريق','members-title':'كادر هامات عزيز الهندسي',
+      'members-sub':'نفخر بفريق من الكفاءات الهندسية المتخصصة التي تجمع بين الخبرة العملية والرؤية المستقبلية',
+      'm1-name':'م. محمود حاتم عزيز','m1-role':'المدير العام والمدير التنفيذي','m1-exp':'خبرة أكثر من 11 عام في مجال السلامة والحماية من الحريق',
+      'm2-name':'الأستاذ يوسف حاتم عزيز','m2-role':'المدير العام','m2-exp':'خبرة في الإدارة المالية وإدارة المشاريع',
+      'about-badge':'عن فريقنا','about-title':'عن فريقنا',
+      'about-p1':'فريق هامات عزيز للاستشارات الهندسية يتكون من مهندسين واستشاريين متخصصين بخبرات عملية طويلة في مجال الاستشارات الهندسية والإشراف على المشاريع الكبرى.',
+      'about-p2':'نؤمن بأن النجاح يأتي من خلال التعاون الفعال والالتزام بأعلى معايير الجودة والدقة في كل مشروع نتولاه.',
+      'about-p3':'فريقنا مجهز بأحدث التقنيات والأدوات الهندسية، ولديه القدرة على التعامل مع المشاريع المعقدة وتقديم حلول مبتكرة تلبي احتياجات السوق المتغيرة.',
+      'ct-title':'تواصل معنا','ct-desc':'نحن دائماً على استعداد للإجابة على استفساراتكم واستقبال طلباتكم',
+      'ct-btn1':'اتصل بنا الآن','ct-btn2':'راسلنا عبر البريد',
+      'ft-desc':'نحو مستقبل هندسي احترافي يواكب تطلعات المملكة في التنمية المستدامة وجودة الحياة، من خلال شراكات فاعلة وأفكار مبتكرة.',
+      'ft-links-title':'روابط سريعة','ft-link1':'من نحن','ft-link2':'خدماتنا','ft-link3':'رؤيتنا','ft-link4':'فروعنا','ft-link5':'سياسة الخصوصية',
+      'ft-contact-title':'تواصل معنا','ft-location':'المملكة العربية السعودية - تبوك','ft-fb':'صفحتنا على فيسبوك',
+      'ft-copy':'© 2026 شركة هامات عزيز للاستشارات الهندسية. جميع الحقوق محفوظة.'
+    },
+    en: {
+      'nav-home':'Home','nav-about':'About Us','nav-vision':'Our Vision','nav-services':'Services',
+      'nav-team':'Our Team','nav-branches':'Branches','nav-contact':'Contact Us','nav-cta':'Request Consultation',
+      'hero-badge':'Our Team','hero-title':'Our Team',
+      'hero-sub':'A specialized team of highly experienced engineers and consultants',
+      'members-badge':'Team Members','members-title':'HAMAAT AZEEZ Engineering Staff',
+      'members-sub':'We take pride in a team of specialized engineering talents combining practical experience with future vision',
+      'm1-name':'Eng. Mahmoud Hatem Aziz','m1-role':'CEO & General Manager','m1-exp':'Over 11 years of experience in fire safety and protection',
+      'm2-name':'Mr. Youssef Hatem Aziz','m2-role':'General Manager','m2-exp':'Experience in financial management and project management',
+      'about-badge':'About Our Team','about-title':'About Our Team',
+      'about-p1':'The HAMMAT AZEEZ Engineering Consultancy team consists of specialized engineers and consultants with extensive practical experience in engineering consulting and supervising large-scale projects.',
+      'about-p2':'We believe that success comes through effective collaboration and commitment to the highest standards of quality and precision in every project we undertake.',
+      'about-p3':'Our team is equipped with the latest engineering technologies and tools, and has the ability to handle complex projects and provide innovative solutions that meet the ever-changing market needs.',
+      'ct-title':'Contact Us','ct-desc':'We are always ready to answer your inquiries and receive your requests',
+      'ct-btn1':'Call Us Now','ct-btn2':'Send Us an Email',
+      'ft-desc':"Toward a professional engineering future aligned with the Kingdom's aspirations for sustainable development and quality of life, through effective partnerships and innovative ideas.",
+      'ft-links-title':'Quick Links','ft-link1':'About Us','ft-link2':'Services','ft-link3':'Our Vision','ft-link4':'Branches','ft-link5':'Privacy Policy',
+      'ft-contact-title':'Contact Us','ft-location':'Saudi Arabia — Tabuk','ft-fb':'Our Facebook Page',
+      'ft-copy':'© 2026 HAMMAT AZEEZ Engineering Consultancy. All rights reserved.'
+    }
+  };
+  let currentLang = 'ar';
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
+    document.body.style.direction = lang === 'en' ? 'ltr' : 'rtl';
+    const btn = document.getElementById('lang-toggle');
+    if (btn) btn.textContent = lang === 'ar' ? 'EN' : 'AR';
+    currentLang = lang;
+  }
+  function toggleLang() { applyLang(currentLang === 'ar' ? 'en' : 'ar'); }
+</script>
+</body>
+</html>
