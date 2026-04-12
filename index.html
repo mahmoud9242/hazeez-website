@@ -125,10 +125,10 @@
     #branches { padding: 5rem 0; background: var(--primary-fg); }
     .br-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 62rem; margin: 0 auto; }
     @media (min-width: 768px) { .br-grid { grid-template-columns: repeat(2,1fr); } }
-    .br-card { display: flex; gap: 1rem; padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--fg-muted); background: var(--primary-fg); transition: all .3s; position: relative; overflow: hidden; }
+    .br-card { display: flex; gap: 1rem; padding: .9rem; border-radius: var(--radius); border: 1px solid var(--fg-muted); background: var(--primary-fg); transition: all .3s; position: relative; overflow: hidden; }
     .br-card::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 4px; background: var(--primary); border-radius: 0 var(--radius) var(--radius) 0; }
     .br-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,.3); transform: translateY(-3px); }
-    .br-flag { flex-shrink: 0; width: 4rem; height: 4rem; display: flex; align-items: center; justify-content: center; background: var(--primary-fg); font-size: 3rem; }
+    .br-flag { flex-shrink: 0; width: 6rem; height: 3rem; display: flex; align-items: center; justify-content: center; background: var(--primary-fg); }
     .br-name { font-weight: 700; font-size: 1rem; text-align: right; margin-bottom: .4rem; line-height: 1.4; color: #000;}
     .br-addr { font-size: .875rem; color: var(--fg-muted); text-align: right; line-height: 1.6; }
 
@@ -372,35 +372,35 @@
     </div>
     <div class="br-grid">
       <div class="br-card fade-up" style="transition-delay:.05s">
-        <div class="br-flag">🇸🇦</div>
+        <div class="br-flag"><img src="https://flagcdn.com/w80/sa.png" width="56" height="40" alt="Saudi Arabia" style="border-radius:4px;object-fit:cover;width:56px;height:40px;" /></div>
         <div>
           <div class="br-name" data-i18n="br1-name">شركة هامات عزيز للاستشارات الهندسية</div>
           <div class="br-addr" data-i18n="br1-addr">المكتب الرئيسي بالمملكة العربية السعودية - تبوك</div>
         </div>
       </div>
       <div class="br-card fade-up" style="transition-delay:.10s">
-        <div class="br-flag" style="font-size:3rem;">&#x1F1F4;&#x1F1F2;</div>
+        <div class="br-flag"><img src="https://flagcdn.com/w80/om.png" width="56" height="40" alt="Oman" style="border-radius:4px;object-fit:cover;width:56px;height:40px;" /></div>
         <div>
           <div class="br-name" data-i18n="br2-name">فرع  عمان</div>
           <div class="br-addr" data-i18n="br2-addr">مسقط - عمان</div>
         </div>
       </div>
       <div class="br-card fade-up" style="transition-delay:.15s">
-        <div class="br-flag">🇺🇸</div>
+        <div class="br-flag"><img src="https://flagcdn.com/w80/us.png" width="56" height="40" alt="USA" style="border-radius:4px;object-fit:cover;width:56px;height:40px;" /></div>
         <div>
           <div class="br-name" data-i18n="br3-name">Sirte United Company for Engineering Consulting LLC</div>
           <div class="br-addr" data-i18n="br3-addr">N Gould St, Ste R, Sheridan, WY 82801 — فرع أمريكا</div>
         </div>
       </div>
       <div class="br-card fade-up" style="transition-delay:.20s">
-        <div class="br-flag">🇬🇧</div>
+        <div class="br-flag"><img src="https://flagcdn.com/w80/gb.png" width="56" height="40" alt="UK" style="border-radius:4px;object-fit:cover;width:56px;height:40px;" /></div>
         <div>
           <div class="br-name" data-i18n="br4-name">SIRTE UNITED COMPANY FOR ENGINEERING CONSULTING LTD</div>
           <div class="br-addr" data-i18n="br4-addr">Shelton Street, Covent Garden, 75-71 — فرع بريطانيا London, WC2H 9JQ</div>
         </div>
       </div>
       <div class="br-card fade-up" style="transition-delay:.25s">
-        <div class="br-flag">🇾🇪</div>
+        <div class="br-flag"><img src="https://flagcdn.com/w80/ye.png" width="56" height="40" alt="Yemen" style="border-radius:4px;object-fit:cover;width:56px;height:40px;" /></div>
         <div>
           <div class="br-name" data-i18n="br5-name">شركة سرت المتحدة للاستشارات الهندسية</div>
           <div class="br-addr" data-i18n="br5-addr">فرع الجمهورية اليمنية - محافظة تعز</div>
@@ -541,7 +541,7 @@
     en: {
       'nav-home':'Home','nav-about':'About Us','nav-vision':'Our Vision','nav-services':'Services',
       'nav-team':'Our Team','nav-branches':'Branches','nav-contact':'Contact Us','nav-cta':'Request Consultation',
-      'hero-title':'Hazeez<br> <span style="color:var(--primary)">Engineering Consultancy</span>',
+      'hero-title':'HAMAAT AZEEZ<br> <span style="color:var(--primary)">Engineering Consultancy</span>',
       'hero-sub':'Professional Engineering Toward Saudi Vision 2030',
       'hero-btn1':'Services','hero-btn2':'Contact Us','hero-btn3':'About Us',
       'about-badge':'About Us','about-title':'Quality, Innovation & Precision at the Heart of Every Project',
