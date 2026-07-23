@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التحقق من صحة الوثيقة</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; text-align: center; }
+        .card { max-width: 500px; margin: 40px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .status-success { color: #2e7d32; font-size: 22px; font-weight: bold; margin-bottom: 20px; }
+        .status-error { color: #c62828; font-size: 22px; font-weight: bold; }
+        .info-group { text-align: right; margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        .label { font-weight: bold; color: #555; }
+        .value { color: #111; float: left; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div id="loading">جاري التحقق من بيانات الوثيقة...</div>
+    <div id="result" style="display: none;"></div>
+</div>
+
+<script>
+    // 1. قراءة المعرف من الرابط (مثال: verify.html?id=DOC-101)
+    const urlParams = new URLSearchParams(window.location.search);
+    const docId = urlParams.get('id');
+
+    const loadingDiv = document.getElementById('loading');
+    const resultDiv = document.getElementById('result');
+
+    if (!docId) {
+        loadingDiv.style.display = 'none';
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = '<p class="status-error">❌ خطأ: لم يتم تحديد رقم المرجع للوثيقة.</p>';
+    } else {
+        // 2. جلب قاعدة البيانات من ملف JSON
+        fetch('documents.json')
+            .then(response => response.json())
+            .then(data => {
+                loadingDiv.style.display = 'none';
+                resultDiv.style.display = 'block';
+
+                // البحث عن الوثيقة
+                if (data[docId]) {
+                    const doc = data[docId];
+                    resultDiv.innerHTML = `
+                        <div class="status-success">✅ وثيقة أصلية ومعتمدة</div>
+                        <div class="info-group"><span class="label">الرقم المرجعي:</span> <span class="value">${docId}</span></div>
+                        <div class="info-group"><span class="label">نوع الوثيقة:</span> <span class="value">${doc.type}</span></div>
+                        <div class="info-group"><span class="label">الجهة الموجه إليها:</span> <span class="value">${doc.issued_to}</span></div>
+                        <div class="info-group"><span class="label">تاريخ الإصدار:</span> <span class="value">${doc.date}</span></div>
+                        <div class="info-group"><span class="label">الحالة:</span> <span class="value" style="color:green;">${doc.status}</span></div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = '<p class="status-error">⚠️ تحذير: هذه الوثيقة غير مسجلة في أنظمتنا أو تم التلاعب بها.</p>';
+                }
+            })
+            .catch(error => {
+                loadingDiv.style.display = 'none';
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = '<p class="status-error">حدث خطأ أثناء الاتصال بقاعدة البيانات.</p>';
+            });
+    }
+</script>
+
+</body>
+</html>
