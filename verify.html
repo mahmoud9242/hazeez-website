@@ -3,71 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>التحقق من صحة الوثيقة</title>
+    <title>التحقق من الوثيقة الهندسية</title>
     <style>
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; text-align: center; }
-        .card { max-width: 500px; margin: 40px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .status-success { color: #2e7d32; font-size: 22px; font-weight: bold; margin-bottom: 20px; }
-        .status-error { color: #c62828; font-size: 22px; font-weight: bold; }
-        .info-group { text-align: right; margin: 15px 0; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        body { font-family: tahoma, arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; text-align: center; }
+        .card { max-width: 500px; margin: 30px auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .success { color: #2e7d32; font-size: 20px; font-weight: bold; margin-bottom: 20px; }
+        .error { color: #c62828; font-size: 20px; font-weight: bold; }
+        .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; text-align: right; }
         .label { font-weight: bold; color: #555; }
-        .value { color: #111; float: left; }
+        .btn { display: inline-block; background-color: #0d47a1; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <div id="loading">جاري التحقق من بيانات الوثيقة...</div>
-    <div id="result" style="display: none;"></div>
+    <div id="loading">جاري التحقق من المستند...</div>
+    <div id="result" style="display:none;"></div>
 </div>
 
 <script>
-    // 1. قراءة المعرف من الرابط (مثال: verify.html?id=DOC-101)
     const urlParams = new URLSearchParams(window.location.search);
     const docId = urlParams.get('id');
 
-    const loadingDiv = document.getElementById('loading');
-    const resultDiv = document.getElementById('result');
-
     if (!docId) {
-        loadingDiv.style.display = 'none';
-        resultDiv.style.display = 'block';
-        resultDiv.innerHTML = '<p class="status-error">❌ خطأ: لم يتم تحديد رقم المرجع للوثيقة.</p>';
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('result').innerHTML = '<p class="error">❌ خطأ: لم يتم تحديد رقم الوثيقة.</p>';
     } else {
-        // 2. جلب قاعدة البيانات من ملف JSON
         fetch('documents.json')
-            .then(response => response.json())
+            .then(res => res.json())
             .then(data => {
-                loadingDiv.style.display = 'none';
-                resultDiv.style.display = 'block';
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('result').style.display = 'block';
 
-                // البحث عن الوثيقة
-                // داخل جزء كود JavaScript في صفحة verify.html:
-if (data[docId]) {
-    const doc = data[docId];
-    resultDiv.innerHTML = `
-        <div class="status-success">✅ وثيقة هندسية أصلية وموثقة</div>
-        
-        <div class="info-group"><span class="label">الرقم المرجعي:</span> <span class="value">${docId}</span></div>
-        <div class="info-group"><span class="label">نوع الوثيقة:</span> <span class="value">${doc.type}</span></div>
-        <div class="info-group"><span class="label">الجهة / العميل:</span> <span class="value">${doc.issued_to}</span></div>
-        <div class="info-group"><span class="label">تاريخ الاعتماد:</span> <span class="value">${doc.date}</span></div>
-        <div class="info-group"><span class="label">الحالة:</span> <span class="value" style="color:green;">${doc.status}</span></div>
-
-        <div style="margin-top: 25px;">
-            <a href="${doc.pdf_url}" target="_blank" style="background-color: #0d47a1; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">
-                📥 معاينة وتحميل نسخة الـ PDF الرسمية
-            </a>
-        </div>
-    `;
-} else {
-                    resultDiv.innerHTML = '<p class="status-error">⚠️ تحذير: هذه الوثيقة غير مسجلة في أنظمتنا أو تم التلاعب بها.</p>';
+                if (data[docId]) {
+                    const doc = data[docId];
+                    document.getElementById('result').innerHTML = `
+                        <div class="success">✅ وثيقة هندسية أصلية ومعتمدة</div>
+                        <div class="info-row"><span class="label">الرقم المرجعي:</span> <span>${docId}</span></div>
+                        <div class="info-row"><span class="label">نوع الوثيقة:</span> <span>${doc.type}</span></div>
+                        <div class="info-row"><span class="label">الجهة / العميل:</span> <span>${doc.issued_to}</span></div>
+                        <div class="info-row"><span class="label">تاريخ الاعتماد:</span> <span>${doc.date}</span></div>
+                        <div class="info-row"><span class="label">حالة الملف:</span> <span style="color:green;">${doc.status}</span></div>
+                        <a href="${doc.pdf_url}" target="_blank" class="btn">📥 استعراض وتحميل ملف الـ PDF الأصلي</a>
+                    `;
+                } else {
+                    document.getElementById('result').innerHTML = '<p class="error">⚠️ تحذير: هذه الوثيقة غير مسجلة أو تم التلاعب بها.</p>';
                 }
             })
-            .catch(error => {
-                loadingDiv.style.display = 'none';
-                resultDiv.style.display = 'block';
-                resultDiv.innerHTML = '<p class="status-error">حدث خطأ أثناء الاتصال بقاعدة البيانات.</p>';
+            .catch(() => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('result').style.display = 'block';
+                document.getElementById('result').innerHTML = '<p class="error">حدث خطأ أثناء جلب البيانات.</p>';
             });
     }
 </script>
