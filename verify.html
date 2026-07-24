@@ -42,17 +42,25 @@
                 resultDiv.style.display = 'block';
 
                 // البحث عن الوثيقة
-                if (data[docId]) {
-                    const doc = data[docId];
-                    resultDiv.innerHTML = `
-                        <div class="status-success">✅ وثيقة أصلية ومعتمدة</div>
-                        <div class="info-group"><span class="label">الرقم المرجعي:</span> <span class="value">${docId}</span></div>
-                        <div class="info-group"><span class="label">نوع الوثيقة:</span> <span class="value">${doc.type}</span></div>
-                        <div class="info-group"><span class="label">الجهة الموجه إليها:</span> <span class="value">${doc.issued_to}</span></div>
-                        <div class="info-group"><span class="label">تاريخ الإصدار:</span> <span class="value">${doc.date}</span></div>
-                        <div class="info-group"><span class="label">الحالة:</span> <span class="value" style="color:green;">${doc.status}</span></div>
-                    `;
-                } else {
+                // داخل جزء كود JavaScript في صفحة verify.html:
+if (data[docId]) {
+    const doc = data[docId];
+    resultDiv.innerHTML = `
+        <div class="status-success">✅ وثيقة هندسية أصلية وموثقة</div>
+        
+        <div class="info-group"><span class="label">الرقم المرجعي:</span> <span class="value">${docId}</span></div>
+        <div class="info-group"><span class="label">نوع الوثيقة:</span> <span class="value">${doc.type}</span></div>
+        <div class="info-group"><span class="label">الجهة / العميل:</span> <span class="value">${doc.issued_to}</span></div>
+        <div class="info-group"><span class="label">تاريخ الاعتماد:</span> <span class="value">${doc.date}</span></div>
+        <div class="info-group"><span class="label">الحالة:</span> <span class="value" style="color:green;">${doc.status}</span></div>
+
+        <div style="margin-top: 25px;">
+            <a href="${doc.pdf_url}" target="_blank" style="background-color: #0d47a1; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">
+                📥 معاينة وتحميل نسخة الـ PDF الرسمية
+            </a>
+        </div>
+    `;
+} else {
                     resultDiv.innerHTML = '<p class="status-error">⚠️ تحذير: هذه الوثيقة غير مسجلة في أنظمتنا أو تم التلاعب بها.</p>';
                 }
             })
